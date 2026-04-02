@@ -1,0 +1,67 @@
+name: Feature Request
+description: Suggest a feature that would help your cooperative
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Communis is shaped by the cooperative community. Tell us what your co-op needs.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this solve?
+      description: Describe the pain point. How does your co-op handle this today?
+      placeholder: "We currently use spreadsheets to..."
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: What would the ideal solution look like?
+      description: Describe what you'd like to see. Be as specific or general as you want.
+      placeholder: "It would be great if Communis could..."
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Which area?
+      options:
+        - Internal Capital Accounts
+        - Patronage Distribution
+        - Member Lifecycle
+        - Governance / Voting
+        - Financial Transparency
+        - NRI / Cooperative Health
+        - Labor Tracking
+        - Committee Management
+        - Communication
+        - Multi-Cooperative / Federation
+        - Conversion Toolkit
+        - Other
+    validations:
+      required: true
+  - type: dropdown
+    id: cooperative-type
+    attributes:
+      label: What type of cooperative are you?
+      options:
+        - Worker cooperative
+        - Consumer cooperative
+        - Housing cooperative
+        - Agricultural cooperative
+        - Platform cooperative
+        - Cooperative developer / advisor
+        - Not a cooperative (yet)
+        - Other
+    validations:
+      required: false
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Anything else — bylaws requirements, integrations, screenshots.
+      placeholder: Optional...
+    validations:
+      required: false

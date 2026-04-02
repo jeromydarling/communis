@@ -71,7 +71,7 @@ export default function HomePage() {
             and narrative-first tools — so you can focus on the work of shared ownership.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
-            <Link to="/app" className="calm-button-primary inline-flex items-center gap-2">
+            <Link to="/demo" className="calm-button-primary inline-flex items-center gap-2">
               Try the Demo <ArrowRight size={16} />
             </Link>
             <Link to="/manifesto" className="calm-button-secondary">
@@ -190,7 +190,7 @@ export default function HomePage() {
             Built as a platform cooperative. Open-core. Owned by the commons.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <Link to="/app" className="calm-button-primary inline-flex items-center gap-2">
+            <Link to="/demo" className="calm-button-primary inline-flex items-center gap-2">
               Explore the Demo <ArrowRight size={16} />
             </Link>
             <Link to="/pricing" className="calm-button-secondary">

@@ -52,32 +52,81 @@ export default function ManifestoPage() {
         </p>
 
         <h2 className="font-display text-2xl font-bold text-gray-900 pt-4">
-          Deep roots
+          Why cooperatives endure
         </h2>
         <p>
-          The worker cooperative movement has roots in Catholic social teaching, distributism,
-          and a century of practice proving that workers can own and govern their own enterprises.
-          Mondragon was founded by a priest. The US federation traces its lineage through
-          movements that believed productive assets should be widely owned.
+          The cooperative movement in America is older than most people realize — and wider
+          than any single tradition. Its roots run through labor halls, farm granges, church
+          basements, civil rights organizing, immigrant communities, and indigenous governance
+          traditions that predate the republic.
         </p>
         <p>
-          Communis does not impose an ideology. But it is built on the conviction that
-          democratic ownership is worth supporting with real tools — not hand-me-down
-          enterprise software repurposed for a market someone decided was "too small."
+          In the 1840s, the Rochdale Pioneers in England formalized principles that still
+          govern cooperatives today: voluntary membership, democratic control, member economic
+          participation. But cooperative practice was already alive in America — mutual aid
+          societies among free Black communities in Philadelphia, cooperative farming
+          arrangements on the frontier, and the labor exchanges of the early trade unions.
+        </p>
+        <p>
+          The Grange movement of the 1870s organized millions of farmers into purchasing and
+          marketing cooperatives. Rural electric cooperatives in the 1930s brought power to
+          communities that investor-owned utilities had written off as unprofitable — today
+          those co-ops still serve 42 million Americans across 56% of the nation's landmass.
+          Credit unions, born from the cooperative banking movement, now serve over 130 million
+          members in the US alone.
+        </p>
+        <p>
+          The civil rights movement wove cooperative economics into its strategy. Fannie Lou
+          Hamer founded Freedom Farm Cooperative in Mississippi. The Federation of Southern
+          Cooperatives, established in 1967, organized Black farmers and rural communities
+          across the South. W.E.B. Du Bois wrote extensively about cooperative economics
+          as a path to Black liberation.
+        </p>
+        <p>
+          Catholic social teaching contributed its own stream — from Rerum Novarum in 1891
+          through distributism to Mondragon, the world's largest cooperative network, founded
+          by a Basque priest now on the path to sainthood. The Catholic Campaign for Human
+          Development has funded cooperative development for decades. But this is one current
+          in a much larger river.
+        </p>
+        <p>
+          Worker cooperatives specifically have tripled in the US over the past decade — from
+          roughly 256 verified co-ops in 2013 to an estimated 1,300 today. They survive longer
+          than traditional small businesses. They pay better entry-level wages. They maintain
+          pay ratios of 2:1 instead of 303:1. And they are disproportionately led by women and
+          people of color — 62.5% female, 37.9% Latinx, 12.7% Black worker-owners.
+        </p>
+        <p>
+          Cooperatives keep enduring because shared ownership works. Not perfectly, not easily,
+          but durably. The model survives because it aligns incentives: when workers own the
+          business, the business serves the workers. When members govern democratically, the
+          organization stays accountable. When surplus is shared by labor, wealth distributes
+          instead of concentrating.
+        </p>
+
+        <h2 className="font-display text-2xl font-bold text-gray-900 pt-4">
+          The silver tsunami
+        </h2>
+        <p>
+          2.9 million US businesses have owners over 55. More than half lack succession plans.
+          If even 1% converted to worker ownership, that would add 29,000 cooperatives to the
+          economy. The infrastructure for these conversions — legal, financial, operational —
+          is being built right now by organizations like DAWI, Project Equity, and the USFWC.
+          Communis is the software layer that makes the operational side work.
         </p>
 
         <h2 className="font-display text-2xl font-bold text-gray-900 pt-4">
           The commons model
         </h2>
         <p>
-          Communis is structured as a platform cooperative. Open-core. The code belongs
-          to the commons. The hosted service sustains the workers who build it.
-          Your subscription funds shared infrastructure, not investor returns.
+          Communis is built as a platform cooperative. The hosted service sustains the workers
+          who build it. Your subscription funds shared infrastructure, not investor returns.
+          The technology is built on open source foundations — every dependency is inspectable,
+          every layer is transparent.
         </p>
         <p>
-          We build for the 1,300 cooperatives that exist today — and for the 29,000 businesses
-          that could become cooperatives tomorrow when the silver tsunami arrives and worker
-          ownership becomes the succession plan.
+          We build for the 1,300 cooperatives that exist today — and for the thousands more
+          that the next decade will bring.
         </p>
 
         <div className="pt-8 border-t border-terra-100 mt-12">

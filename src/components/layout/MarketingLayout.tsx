@@ -10,6 +10,7 @@ export default function MarketingLayout() {
     { to: '/features', label: 'Features' },
     { to: '/pricing', label: 'Pricing' },
     { to: '/manifesto', label: 'Manifesto' },
+    { to: '/open-source', label: 'Open Source' },
   ]
 
   return (
@@ -44,7 +45,7 @@ export default function MarketingLayout() {
                 {link.label}
               </Link>
             ))}
-            <Link to="/app" className="calm-button-primary text-sm">
+            <Link to="/demo" className="calm-button-primary text-sm">
               Try the Demo
             </Link>
           </nav>
@@ -71,7 +72,7 @@ export default function MarketingLayout() {
               </Link>
             ))}
             <Link
-              to="/app"
+              to="/demo"
               className="block calm-button-primary text-sm text-center"
               onClick={() => setMenuOpen(false)}
             >
@@ -99,7 +100,7 @@ export default function MarketingLayout() {
               <div className="space-y-2">
                 <Link to="/features" className="block text-sm text-gray-600 hover:text-grove-600">Features</Link>
                 <Link to="/pricing" className="block text-sm text-gray-600 hover:text-grove-600">Pricing</Link>
-                <Link to="/app" className="block text-sm text-gray-600 hover:text-grove-600">Demo</Link>
+                <Link to="/demo" className="block text-sm text-gray-600 hover:text-grove-600">Demo</Link>
               </div>
             </div>
             <div>
