@@ -9,6 +9,7 @@ export default function MarketingLayout() {
   const navLinks = [
     { to: '/features', label: 'Features' },
     { to: '/pricing', label: 'Pricing' },
+    { to: '/map', label: 'Map' },
     { to: '/manifesto', label: 'Manifesto' },
     { to: '/open-source', label: 'Open Source' },
   ]

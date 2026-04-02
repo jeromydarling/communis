@@ -9,10 +9,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@types/topojson-client": "^3.1.5",
+    "lucide-react": "^0.503.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router-dom": "^7.5.0",
-    "lucide-react": "^0.503.0"
+    "topojson-client": "^3.1.0"
   },
   "devDependencies": {
     "@types/react": "^19.1.2",

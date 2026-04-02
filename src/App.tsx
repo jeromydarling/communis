@@ -6,6 +6,7 @@ import FeaturesPage from './pages/FeaturesPage'
 import PricingPage from './pages/PricingPage'
 import ManifestoPage from './pages/ManifestoPage'
 import OpenSourcePage from './pages/OpenSourcePage'
+import MapPage from './pages/MapPage'
 import DemoGatePage from './pages/DemoGatePage'
 import DashboardPage from './pages/DashboardPage'
 import MembersPage from './pages/MembersPage'
@@ -25,6 +26,7 @@ export default function App() {
         <Route path="/pricing" element={<PricingPage />} />
         <Route path="/manifesto" element={<ManifestoPage />} />
         <Route path="/open-source" element={<OpenSourcePage />} />
+        <Route path="/map" element={<MapPage />} />
         <Route path="/demo" element={<DemoGatePage />} />
       </Route>
 
