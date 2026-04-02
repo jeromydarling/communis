@@ -6,6 +6,8 @@ import {
   PieChart,
   ArrowLeft,
   Bell,
+  Upload,
+  Settings,
 } from 'lucide-react'
 
 const navItems = [
@@ -13,6 +15,8 @@ const navItems = [
   { to: '/app/members', icon: Users, label: 'Members' },
   { to: '/app/governance', icon: Vote, label: 'Governance' },
   { to: '/app/patronage', icon: PieChart, label: 'Patronage' },
+  { to: '/app/import', icon: Upload, label: 'Import' },
+  { to: '/app/onboarding', icon: Settings, label: 'Setup' },
 ]
 
 export default function AppLayout() {

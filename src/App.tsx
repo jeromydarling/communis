@@ -12,6 +12,8 @@ import MembersPage from './pages/MembersPage'
 import MemberStoryPage from './pages/MemberStoryPage'
 import GovernancePage from './pages/GovernancePage'
 import PatronagePage from './pages/PatronagePage'
+import ImportPage from './pages/ImportPage'
+import OnboardingPage from './pages/OnboardingPage'
 
 export default function App() {
   return (
@@ -33,7 +35,17 @@ export default function App() {
         <Route path="members/:id" element={<MemberStoryPage />} />
         <Route path="governance" element={<GovernancePage />} />
         <Route path="patronage" element={<PatronagePage />} />
+        <Route path="import" element={<ImportPage />} />
+        <Route path="onboarding" element={<OnboardingPage />} />
       </Route>
+
+      {/* Gardener Console (future) */}
+      {/* <Route path="/gardener" element={<GardenerLayout />}> */}
+      {/*   <Route index element={<GardenerDashboard />} /> */}
+      {/*   <Route path="tenants" element={<GardenerTenants />} /> */}
+      {/*   <Route path="content" element={<GardenerContentStudio />} /> */}
+      {/*   <Route path="seo" element={<GardenerSEO />} /> */}
+      {/* </Route> */}
     </Routes>
   )
 }
