@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply antialiased;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-warmth-50 text-gray-800 font-body;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  .narrative-card {
+    @apply bg-white/80 backdrop-blur-sm border border-terra-100 rounded-2xl p-6 shadow-sm;
+  }
+
+  .signal-dot {
+    @apply w-2 h-2 rounded-full animate-pulse;
+  }
+
+  .calm-button {
+    @apply px-6 py-3 rounded-xl font-medium transition-all duration-300 ease-out;
+  }
+
+  .calm-button-primary {
+    @apply calm-button bg-grove-600 text-white hover:bg-grove-700 shadow-sm hover:shadow-md;
+  }
+
+  .calm-button-secondary {
+    @apply calm-button bg-white text-grove-700 border border-grove-200 hover:border-grove-400 hover:bg-grove-50;
+  }
+}
