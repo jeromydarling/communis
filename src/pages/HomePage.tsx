@@ -10,6 +10,12 @@ import {
   ArrowRight,
   Sprout,
 } from 'lucide-react'
+import {
+  DashboardScreenshot,
+  PatronageScreenshot,
+  GovernanceScreenshot,
+  MemberStoryScreenshot,
+} from '@/components/marketing/AppScreenshots'
 
 const features = [
   {
@@ -56,27 +62,129 @@ export default function HomePage() {
     <div>
       {/* Hero */}
       <section className="max-w-6xl mx-auto px-6 pt-20 pb-16">
-        <div className="max-w-3xl">
-          <div className="flex items-center gap-2 text-grove-600 mb-6">
-            <Sprout size={16} />
-            <span className="text-xs font-medium uppercase tracking-wider">For worker cooperatives</span>
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <div className="flex items-center gap-2 text-grove-600 mb-6">
+              <Sprout size={16} />
+              <span className="text-xs font-medium uppercase tracking-wider">For worker cooperatives</span>
+            </div>
+            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+              The operating system
+              <br />
+              <span className="text-grove-600">your co-op deserves</span>
+            </h1>
+            <p className="mt-6 text-lg text-gray-500 max-w-xl leading-relaxed">
+              Communis replaces spreadsheets with relationship memory, cooperative intelligence,
+              and narrative-first tools — so you can focus on the work of shared ownership.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-4">
+              <Link to="/demo" className="calm-button-primary inline-flex items-center gap-2">
+                Try the Demo <ArrowRight size={16} />
+              </Link>
+              <Link to="/manifesto" className="calm-button-secondary">
+                Read the Manifesto
+              </Link>
+            </div>
           </div>
-          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-            The operating system
-            <br />
-            <span className="text-grove-600">your co-op deserves</span>
-          </h1>
-          <p className="mt-6 text-lg text-gray-500 max-w-xl leading-relaxed">
-            Communis replaces spreadsheets with relationship memory, cooperative intelligence,
-            and narrative-first tools — so you can focus on the work of shared ownership.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-4">
-            <Link to="/demo" className="calm-button-primary inline-flex items-center gap-2">
-              Try the Demo <ArrowRight size={16} />
-            </Link>
-            <Link to="/manifesto" className="calm-button-secondary">
-              Read the Manifesto
-            </Link>
+
+          {/* Hero visual — animated cooperative network */}
+          <div className="hidden lg:block relative">
+            <div className="relative w-full aspect-square max-w-md mx-auto">
+              {/* Background glow */}
+              <div className="absolute inset-0 bg-gradient-to-br from-grove-100 via-warmth-50 to-commons-100 rounded-3xl opacity-60 blur-2xl" />
+
+              {/* Animated nodes — cooperative members */}
+              <svg viewBox="0 0 400 400" className="relative w-full h-full" aria-hidden="true">
+                {/* Connection lines */}
+                <line x1="200" y1="100" x2="100" y2="220" stroke="#bbdcc0" strokeWidth="2" opacity="0.5">
+                  <animate attributeName="opacity" values="0.3;0.6;0.3" dur="4s" repeatCount="indefinite" />
+                </line>
+                <line x1="200" y1="100" x2="300" y2="220" stroke="#bbdcc0" strokeWidth="2" opacity="0.5">
+                  <animate attributeName="opacity" values="0.4;0.7;0.4" dur="5s" repeatCount="indefinite" />
+                </line>
+                <line x1="100" y1="220" x2="300" y2="220" stroke="#bbdcc0" strokeWidth="2" opacity="0.5">
+                  <animate attributeName="opacity" values="0.5;0.8;0.5" dur="3.5s" repeatCount="indefinite" />
+                </line>
+                <line x1="100" y1="220" x2="150" y2="330" stroke="#e2ceae" strokeWidth="1.5" opacity="0.4">
+                  <animate attributeName="opacity" values="0.2;0.5;0.2" dur="6s" repeatCount="indefinite" />
+                </line>
+                <line x1="300" y1="220" x2="250" y2="330" stroke="#e2ceae" strokeWidth="1.5" opacity="0.4">
+                  <animate attributeName="opacity" values="0.3;0.6;0.3" dur="4.5s" repeatCount="indefinite" />
+                </line>
+                <line x1="200" y1="100" x2="150" y2="330" stroke="#d3daea" strokeWidth="1" opacity="0.3">
+                  <animate attributeName="opacity" values="0.2;0.4;0.2" dur="7s" repeatCount="indefinite" />
+                </line>
+                <line x1="200" y1="100" x2="250" y2="330" stroke="#d3daea" strokeWidth="1" opacity="0.3">
+                  <animate attributeName="opacity" values="0.3;0.5;0.3" dur="5.5s" repeatCount="indefinite" />
+                </line>
+
+                {/* Steward node */}
+                <g>
+                  <circle cx="200" cy="100" r="28" fill="#2d6f3d" opacity="0.9">
+                    <animate attributeName="r" values="28;30;28" dur="4s" repeatCount="indefinite" />
+                  </circle>
+                  <text x="200" y="96" textAnchor="middle" fill="white" fontSize="10" fontWeight="600">MR</text>
+                  <text x="200" y="108" textAnchor="middle" fill="#bbdcc0" fontSize="7">Steward</text>
+                </g>
+
+                {/* Member nodes */}
+                <g>
+                  <circle cx="100" cy="220" r="24" fill="#3d8b50" opacity="0.85">
+                    <animate attributeName="r" values="24;26;24" dur="5s" repeatCount="indefinite" />
+                  </circle>
+                  <text x="100" y="216" textAnchor="middle" fill="white" fontSize="10" fontWeight="600">JO</text>
+                  <text x="100" y="228" textAnchor="middle" fill="#dcedde" fontSize="7">Coordinator</text>
+                </g>
+                <g>
+                  <circle cx="300" cy="220" r="24" fill="#3d8b50" opacity="0.85">
+                    <animate attributeName="r" values="24;26;24" dur="4.5s" repeatCount="indefinite" />
+                  </circle>
+                  <text x="300" y="216" textAnchor="middle" fill="white" fontSize="10" fontWeight="600">AV</text>
+                  <text x="300" y="228" textAnchor="middle" fill="#dcedde" fontSize="7">Member</text>
+                </g>
+
+                {/* Smaller nodes */}
+                <g>
+                  <circle cx="150" cy="330" r="18" fill="#5ea86e" opacity="0.8">
+                    <animate attributeName="r" values="18;20;18" dur="6s" repeatCount="indefinite" />
+                  </circle>
+                  <text x="150" y="333" textAnchor="middle" fill="white" fontSize="9" fontWeight="600">FH</text>
+                </g>
+                <g>
+                  <circle cx="250" cy="330" r="18" fill="#5ea86e" opacity="0.8">
+                    <animate attributeName="r" values="18;20;18" dur="5.5s" repeatCount="indefinite" />
+                  </circle>
+                  <text x="250" y="333" textAnchor="middle" fill="white" fontSize="9" fontWeight="600">DC</text>
+                </g>
+
+                {/* Candidate node — pulsing warmth */}
+                <g>
+                  <circle cx="340" cy="320" r="14" fill="#dc7c30" opacity="0.7">
+                    <animate attributeName="r" values="14;16;14" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="opacity" values="0.5;0.8;0.5" dur="3s" repeatCount="indefinite" />
+                  </circle>
+                  <text x="340" y="323" textAnchor="middle" fill="white" fontSize="8" fontWeight="600">RS</text>
+                </g>
+
+                {/* Equity flow particle */}
+                <circle r="3" fill="#b37d42" opacity="0.6">
+                  <animateMotion dur="8s" repeatCount="indefinite" path="M200,100 L100,220 L300,220 Z" />
+                </circle>
+                <circle r="2" fill="#7388b4" opacity="0.4">
+                  <animateMotion dur="10s" repeatCount="indefinite" path="M200,100 L250,330 L150,330 Z" />
+                </circle>
+              </svg>
+
+              {/* Label cards floating around the network */}
+              <div className="absolute top-4 right-4 bg-white/90 backdrop-blur rounded-lg px-3 py-2 shadow-sm border border-terra-100">
+                <p className="text-[10px] font-medium text-grove-700">$34,730</p>
+                <p className="text-[8px] text-gray-400">Total member equity</p>
+              </div>
+              <div className="absolute bottom-12 left-4 bg-white/90 backdrop-blur rounded-lg px-3 py-2 shadow-sm border border-terra-100">
+                <p className="text-[10px] font-medium text-warmth-700">1 candidate</p>
+                <p className="text-[8px] text-gray-400">on the path</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -110,6 +218,44 @@ export default function HomePage() {
             Communis closes that gap — not with enterprise software dressed down, but with
             tools grown from the cooperative movement itself.
           </p>
+        </div>
+      </section>
+
+      {/* App Screenshots — live mini components */}
+      <section className="max-w-6xl mx-auto px-6 pb-20">
+        <h2 className="font-display text-2xl font-bold text-gray-900 text-center mb-3">
+          See it in action
+        </h2>
+        <p className="text-sm text-gray-400 text-center mb-12 max-w-md mx-auto">
+          Real screens from Communis — not mockups. These are live React components
+          rendering actual cooperative data.
+        </p>
+
+        <div className="grid md:grid-cols-2 gap-8">
+          <div className="space-y-3">
+            <DashboardScreenshot />
+            <p className="text-xs text-gray-400 text-center">
+              NRI-powered dashboard with cooperative health signals
+            </p>
+          </div>
+          <div className="space-y-3">
+            <PatronageScreenshot />
+            <p className="text-xs text-gray-400 text-center">
+              Patronage distribution with Subchapter T compliance
+            </p>
+          </div>
+          <div className="space-y-3">
+            <GovernanceScreenshot />
+            <p className="text-xs text-gray-400 text-center">
+              Democratic governance — proposals that connect to outcomes
+            </p>
+          </div>
+          <div className="space-y-3">
+            <MemberStoryScreenshot />
+            <p className="text-xs text-gray-400 text-center">
+              Member stories — narrative-first, not a performance dashboard
+            </p>
+          </div>
         </div>
       </section>
 
