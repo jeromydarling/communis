@@ -15,6 +15,8 @@ import GovernancePage from './pages/GovernancePage'
 import PatronagePage from './pages/PatronagePage'
 import ImportPage from './pages/ImportPage'
 import OnboardingPage from './pages/OnboardingPage'
+import PaymentsPage from './pages/PaymentsPage'
+import PaymentSetupPage from './pages/PaymentSetupPage'
 
 export default function App() {
   return (
@@ -39,6 +41,8 @@ export default function App() {
         <Route path="patronage" element={<PatronagePage />} />
         <Route path="import" element={<ImportPage />} />
         <Route path="onboarding" element={<OnboardingPage />} />
+        <Route path="payments" element={<PaymentsPage />} />
+        <Route path="payments/setup" element={<PaymentSetupPage />} />
       </Route>
 
       {/* Gardener Console (future) */}
