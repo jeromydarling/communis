@@ -1,5 +1,6 @@
 import { Outlet, Link, useLocation } from 'react-router-dom'
 import { useState } from 'react'
+import CompassDrawer from '@/components/compass/CompassDrawer'
 import {
   LayoutDashboard,
   Users,
@@ -85,6 +86,7 @@ export default function AppLayout() {
   const location = useLocation()
   const [currentRole, setCurrentRole] = useState<CoopRole>('steward')
   const [roleSwitcherOpen, setRoleSwitcherOpen] = useState(false)
+  const [compassOpen, setCompassOpen] = useState(false)
 
   const visibleNavItems = allNavItems.filter(item => hasMinRole(currentRole, item.minRole))
   const roleConfig = ROLE_CONFIG.find(r => r.role === currentRole)!
@@ -253,6 +255,27 @@ export default function AppLayout() {
           <Outlet context={{ currentRole, persona, permissions }} />
         </main>
       </div>
+
+      {/* NRI Compass button */}
+      <button
+        onClick={() => setCompassOpen(true)}
+        className="fixed bottom-6 right-6 md:bottom-8 md:right-8 w-14 h-14 rounded-2xl bg-grove-600 text-white shadow-lg hover:bg-grove-700 flex items-center justify-center transition-all hover:scale-105 z-30"
+        aria-label="Open NRI Compass"
+      >
+        <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2">
+          <circle cx="12" cy="12" r="10" />
+          <polygon points="16.24,7.76 14.12,14.12 7.76,16.24 9.88,9.88" fill="currentColor" stroke="none" />
+        </svg>
+      </button>
+
+      {/* NRI Compass drawer */}
+      <CompassDrawer
+        open={compassOpen}
+        onClose={() => setCompassOpen(false)}
+        coopName="Evergreen Workers Co-op"
+        memberName={persona.name}
+        role={currentRole}
+      />
     </div>
   )
 }

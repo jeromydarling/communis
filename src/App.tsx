@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
 import MarketingLayout from './components/layout/MarketingLayout'
 import AppLayout from './components/layout/AppLayout'
+import GardenerLayout from './components/gardener/GardenerLayout'
 import HomePage from './pages/HomePage'
 import FeaturesPage from './pages/FeaturesPage'
 import PricingPage from './pages/PricingPage'
@@ -19,6 +20,14 @@ import PaymentsPage from './pages/PaymentsPage'
 import PaymentSetupPage from './pages/PaymentSetupPage'
 import IntegrationsPage from './pages/IntegrationsPage'
 import CommitteesPage from './pages/CommitteesPage'
+import GardenerOverview from './pages/gardener/GardenerOverview'
+import GardenerTenants from './pages/gardener/GardenerTenants'
+import GardenerContent from './pages/gardener/GardenerContent'
+import GardenerSEO from './pages/gardener/GardenerSEO'
+import GardenerAnalytics from './pages/gardener/GardenerAnalytics'
+import GardenerSystem from './pages/gardener/GardenerSystem'
+import GardenerInbox from './pages/gardener/GardenerInbox'
+import GardenerSettings from './pages/gardener/GardenerSettings'
 
 export default function App() {
   return (
@@ -49,13 +58,17 @@ export default function App() {
         <Route path="committees" element={<CommitteesPage />} />
       </Route>
 
-      {/* Gardener Console (future) */}
-      {/* <Route path="/gardener" element={<GardenerLayout />}> */}
-      {/*   <Route index element={<GardenerDashboard />} /> */}
-      {/*   <Route path="tenants" element={<GardenerTenants />} /> */}
-      {/*   <Route path="content" element={<GardenerContentStudio />} /> */}
-      {/*   <Route path="seo" element={<GardenerSEO />} /> */}
-      {/* </Route> */}
+      {/* Gardener Console */}
+      <Route path="/gardener" element={<GardenerLayout />}>
+        <Route index element={<GardenerOverview />} />
+        <Route path="tenants" element={<GardenerTenants />} />
+        <Route path="content" element={<GardenerContent />} />
+        <Route path="seo" element={<GardenerSEO />} />
+        <Route path="analytics" element={<GardenerAnalytics />} />
+        <Route path="system" element={<GardenerSystem />} />
+        <Route path="inbox" element={<GardenerInbox />} />
+        <Route path="settings" element={<GardenerSettings />} />
+      </Route>
     </Routes>
   )
 }

@@ -38,3 +38,61 @@
     @apply calm-button bg-white text-grove-700 border border-grove-200 hover:border-grove-400 hover:bg-grove-50;
   }
 }
+
+/* ─── Accessibility Mode (WCAG 2.2 AA) ─────────────────── */
+html.a11y-mode {
+  --a11y-focus: #FFD700;
+}
+
+html.a11y-mode body {
+  font-size: 16px;
+  line-height: 1.6;
+  letter-spacing: 0.03em;
+}
+
+html.a11y-mode :focus-visible {
+  outline: 3px solid var(--a11y-focus);
+  outline-offset: 3px;
+  box-shadow: none;
+}
+
+/* Kill animations */
+html.a11y-mode *,
+html.a11y-mode *::before,
+html.a11y-mode *::after {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+  scroll-behavior: auto !important;
+}
+
+/* Minimum touch targets 44×44 */
+html.a11y-mode button,
+html.a11y-mode a[role="button"],
+html.a11y-mode [role="button"] {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Links always underlined */
+html.a11y-mode a:not([role="button"]):not(.nav-item) {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Status badges get borders */
+html.a11y-mode .signal-dot {
+  border: 2px solid currentColor;
+}
+
+/* Reduced motion media query */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
