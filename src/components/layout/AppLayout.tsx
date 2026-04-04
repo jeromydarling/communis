@@ -17,6 +17,8 @@ import {
   ChevronDown,
   Eye,
   CreditCard,
+  Link2,
+  UsersRound,
 } from 'lucide-react'
 import type { CoopRole } from '@/types'
 import { ROLE_PERMISSIONS } from '@/types'
@@ -26,7 +28,9 @@ const allNavItems = [
   { to: '/app/members', icon: Users, label: 'Members', minRole: 'member' as CoopRole },
   { to: '/app/governance', icon: Vote, label: 'Governance', minRole: 'member' as CoopRole },
   { to: '/app/patronage', icon: PieChart, label: 'Patronage', minRole: 'member' as CoopRole },
+  { to: '/app/committees', icon: UsersRound, label: 'Committees', minRole: 'member' as CoopRole },
   { to: '/app/payments', icon: CreditCard, label: 'Payments', minRole: 'coordinator' as CoopRole },
+  { to: '/app/integrations', icon: Link2, label: 'Integrations', minRole: 'coordinator' as CoopRole },
   { to: '/app/import', icon: Upload, label: 'Import', minRole: 'coordinator' as CoopRole },
   { to: '/app/onboarding', icon: Settings, label: 'Setup', minRole: 'steward' as CoopRole },
 ]

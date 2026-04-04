@@ -17,6 +17,8 @@ import ImportPage from './pages/ImportPage'
 import OnboardingPage from './pages/OnboardingPage'
 import PaymentsPage from './pages/PaymentsPage'
 import PaymentSetupPage from './pages/PaymentSetupPage'
+import IntegrationsPage from './pages/IntegrationsPage'
+import CommitteesPage from './pages/CommitteesPage'
 
 export default function App() {
   return (
@@ -43,6 +45,8 @@ export default function App() {
         <Route path="onboarding" element={<OnboardingPage />} />
         <Route path="payments" element={<PaymentsPage />} />
         <Route path="payments/setup" element={<PaymentSetupPage />} />
+        <Route path="integrations" element={<IntegrationsPage />} />
+        <Route path="committees" element={<CommitteesPage />} />
       </Route>
 
       {/* Gardener Console (future) */}
