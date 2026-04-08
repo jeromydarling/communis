@@ -173,6 +173,7 @@ export interface Proposal {
   quorum_required: number; // fraction, e.g. 0.5
   pass_threshold: number; // fraction, e.g. 0.667 for supermajority
   outcome_trigger: string | null; // 'patronage_run:123' or 'member_onboard:456'
+  is_rehearsal: boolean; // practice vote — results shown but no outcomes triggered
   created_at: string;
 }
 

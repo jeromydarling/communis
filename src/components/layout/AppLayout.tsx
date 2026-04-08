@@ -20,6 +20,8 @@ import {
   CreditCard,
   Link2,
   UsersRound,
+  GraduationCap,
+  BookOpen,
 } from 'lucide-react'
 import type { CoopRole } from '@/types'
 import { ROLE_PERMISSIONS } from '@/types'
@@ -32,6 +34,8 @@ const allNavItems = [
   { to: '/app/committees', icon: UsersRound, label: 'Committees', minRole: 'member' as CoopRole },
   { to: '/app/payments', icon: CreditCard, label: 'Payments', minRole: 'coordinator' as CoopRole },
   { to: '/app/integrations', icon: Link2, label: 'Integrations', minRole: 'coordinator' as CoopRole },
+  { to: '/app/rehearsal', icon: GraduationCap, label: 'Practice Votes', minRole: 'candidate' as CoopRole },
+  { to: '/app/glossary', icon: BookOpen, label: 'Glossary', minRole: 'candidate' as CoopRole },
   { to: '/app/import', icon: Upload, label: 'Import', minRole: 'coordinator' as CoopRole },
   { to: '/app/onboarding', icon: Settings, label: 'Setup', minRole: 'steward' as CoopRole },
 ]

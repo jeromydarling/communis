@@ -20,6 +20,8 @@ import PaymentsPage from './pages/PaymentsPage'
 import PaymentSetupPage from './pages/PaymentSetupPage'
 import IntegrationsPage from './pages/IntegrationsPage'
 import CommitteesPage from './pages/CommitteesPage'
+import RehearsalPage from './pages/RehearsalPage'
+import GlossaryPage from './pages/GlossaryPage'
 import GardenerOverview from './pages/gardener/GardenerOverview'
 import GardenerTenants from './pages/gardener/GardenerTenants'
 import GardenerContent from './pages/gardener/GardenerContent'
@@ -56,6 +58,8 @@ export default function App() {
         <Route path="payments/setup" element={<PaymentSetupPage />} />
         <Route path="integrations" element={<IntegrationsPage />} />
         <Route path="committees" element={<CommitteesPage />} />
+        <Route path="rehearsal" element={<RehearsalPage />} />
+        <Route path="glossary" element={<GlossaryPage />} />
       </Route>
 
       {/* Gardener Console */}

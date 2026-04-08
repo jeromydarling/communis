@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { X, Send, Sparkles, ChevronDown } from 'lucide-react'
 import { checkNriScope } from '@/lib/nri/scopeGuardrails'
+import { findGlossaryEntry, getRandomEducation } from '@/lib/nri/education'
 
 interface Message {
   id: string
@@ -33,17 +34,34 @@ const DEMO_RESPONSES: Record<string, string> = {
   'committee': 'The Hiring Committee currently has James Okonkwo (chair) and Ana Lucía Vega. Their term runs through December 2025. The committee meets biweekly — next meeting is January 28.',
   'vote': 'Last month, the cooperative passed the Grievance Policy update (5-0, supermajority) and approved the floor equipment purchase (4-1, majority). The Q4 patronage distribution is currently in voting — 3 for, 1 abstain, waiting on David\'s vote.',
   'buy-in': 'Your total buy-in is $2,000. You\'ve paid $1,500 so far through monthly installments of $125. At your current rate, you\'ll complete your buy-in in April 2025. You can also make a lump-sum payment to finish early.',
+  'what_is': '', // handled dynamically
 }
 
-function getDemoResponse(message: string): string {
+function getDemoResponse(message: string, role: string): string {
   const lower = message.toLowerCase()
+
+  // Check for "what is" / "what does X mean" / "explain" — educational queries
+  const whatIsMatch = lower.match(/(?:what\s+(?:is|are|does)|explain|tell me about|define|meaning of)\s+(.+?)(?:\?|$)/i)
+  if (whatIsMatch) {
+    const term = whatIsMatch[1].trim().replace(/^(?:a|an|the)\s+/, '')
+    const entry = findGlossaryEntry(term)
+      || findGlossaryEntry(term.replace(/s$/, '')) // try singular
+      || findGlossaryEntry(term.replace(/-/g, ' '))
+    if (entry) {
+      return `${entry.simple}\n\n${entry.analogy}\n\n${entry.detail}`
+    }
+  }
+
   if (lower.includes('equity') || lower.includes('balance')) return DEMO_RESPONSES.equity
   if (lower.includes('meeting') || lower.includes('next')) return DEMO_RESPONSES.meeting
   if (lower.includes('patronage') || lower.includes('calculated') || lower.includes('surplus')) return DEMO_RESPONSES.patronage
   if (lower.includes('committee') || lower.includes('hiring')) return DEMO_RESPONSES.committee
   if (lower.includes('vote') || lower.includes('last month') || lower.includes('decided')) return DEMO_RESPONSES.vote
   if (lower.includes('buy-in') || lower.includes('buy in') || lower.includes('complete')) return DEMO_RESPONSES['buy-in']
-  return 'I can help you understand your cooperative\'s equity, governance, patronage, committees, bylaws, and financial health. What would you like to know?'
+
+  // Random educational prompt
+  const edu = getRandomEducation(role)
+  return `I can help you understand your cooperative's equity, governance, patronage, committees, bylaws, and financial health.\n\n💡 Did you know? ${edu.term}: ${edu.simple}`
 }
 
 export default function CompassDrawer({ open, onClose, coopName, memberName, role }: CompassDrawerProps) {
@@ -84,7 +102,7 @@ export default function CompassDrawer({ open, onClose, coopName, memberName, rol
       const response: Message = {
         id: (Date.now() + 1).toString(),
         role: 'nri',
-        content: scopeResult.allowed ? getDemoResponse(text) : scopeResult.gentleResponse!,
+        content: scopeResult.allowed ? getDemoResponse(text, role) : scopeResult.gentleResponse!,
         timestamp: new Date(),
       }
       setMessages(prev => [...prev, response])
