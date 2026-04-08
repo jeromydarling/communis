@@ -9,12 +9,19 @@ import {
   Heart,
   ArrowRight,
   Sprout,
+  CreditCard,
+  FolderOpen,
+  Globe,
+  GraduationCap,
 } from 'lucide-react'
 import {
   DashboardScreenshot,
   PatronageScreenshot,
   GovernanceScreenshot,
   MemberStoryScreenshot,
+  CommunioScreenshot,
+  DocumentsScreenshot,
+  EducationScreenshot,
 } from '@/components/marketing/AppScreenshots'
 
 const features = [
@@ -29,19 +36,34 @@ const features = [
     description: 'Calculate surplus distribution by labor hours. Split qualified/non-qualified allocations. Generate 1099-PATRs.',
   },
   {
-    icon: Users,
-    title: 'Member Lifecycle',
-    description: 'From candidacy to full membership to departure. Bylaw-configurable, not rigid. Every co-op is different.',
-  },
-  {
     icon: Vote,
     title: 'Democratic Governance',
-    description: 'Proposals, voting, discussion threads. A vote to hire becomes an onboarding workflow. Decisions connect to outcomes.',
+    description: 'Proposals, voting, rehearsal votes. A vote to hire becomes onboarding. A vote to distribute surplus triggers payouts.',
+  },
+  {
+    icon: CreditCard,
+    title: 'Stripe Payments',
+    description: 'Buy-in collection, recurring dues, patronage payouts — all through Stripe Connect. Your money stays your money.',
+  },
+  {
+    icon: FolderOpen,
+    title: 'Document Intelligence',
+    description: 'Connect Google Drive or Dropbox. NRI reads your bylaws, policies, and meeting minutes — then answers questions from your actual docs.',
+  },
+  {
+    icon: Globe,
+    title: 'Communio Knowledge Hub',
+    description: 'How co-ops actually run — anonymized insights shared across cooperatives. Real stories from real co-ops, not textbook theory.',
+  },
+  {
+    icon: GraduationCap,
+    title: 'Cooperative Education',
+    description: 'Rehearsal votes, plain-language glossary, knowledge base, curated library. From "What\'s a cooperative?" to full ownership literacy.',
   },
   {
     icon: BarChart3,
     title: 'Financial Transparency',
-    description: 'Member-facing dashboards with calm narrative. "Your equity grew 12% this year through your labor."',
+    description: 'QuickBooks integration, member-facing dashboards, narrative summaries. "Your equity grew 12% this year through your labor."',
   },
   {
     icon: BookOpen,
@@ -245,15 +267,27 @@ export default function HomePage() {
             </p>
           </div>
           <div className="space-y-3">
-            <GovernanceScreenshot />
+            <CommunioScreenshot />
             <p className="text-xs text-gray-400 text-center">
-              Democratic governance — proposals that connect to outcomes
+              Communio — real operational knowledge from real cooperatives
             </p>
           </div>
           <div className="space-y-3">
-            <MemberStoryScreenshot />
+            <EducationScreenshot />
             <p className="text-xs text-gray-400 text-center">
-              Member stories — narrative-first, not a performance dashboard
+              Rehearsal votes — practice democracy before it counts
+            </p>
+          </div>
+          <div className="space-y-3">
+            <DocumentsScreenshot />
+            <p className="text-xs text-gray-400 text-center">
+              NRI reads your documents and becomes your co-op's memory
+            </p>
+          </div>
+          <div className="space-y-3">
+            <GovernanceScreenshot />
+            <p className="text-xs text-gray-400 text-center">
+              Democratic governance — proposals that connect to outcomes
             </p>
           </div>
         </div>

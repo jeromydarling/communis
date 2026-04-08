@@ -1,16 +1,8 @@
 import {
-  Landmark,
-  Users,
-  Vote,
-  PieChart,
-  BarChart3,
-  BookOpen,
-  Clock,
-  UserCog,
-  MessageSquare,
-  Heart,
-  Sparkles,
-  CalendarDays,
+  Landmark, Users, Vote, PieChart, BarChart3, BookOpen,
+  Clock, UserCog, MessageSquare, Heart, Sparkles,
+  CreditCard, FolderOpen, Globe, GraduationCap,
+  CalendarDays, TrendingUp, FileText, Search, Library,
 } from 'lucide-react'
 
 const coreModules = [
@@ -60,7 +52,7 @@ const coreModules = [
     description: 'Member-facing. Calm. "Your equity has grown 12% this year through your labor." Cooperative-specific statements that QuickBooks cannot generate.',
     details: [
       'Personal equity dashboard per member',
-      'Cooperative financial health overview',
+      'Cooperative financial health overview (from QuickBooks/Xero)',
       'Narrative summaries (not just charts)',
       'Collective vs. individual account visibility',
       'Year-over-year member wealth tracking',
@@ -95,12 +87,71 @@ const operations = [
   {
     icon: UserCog,
     title: 'Committee & Role Management',
-    description: 'Finance, hiring, operations, grievance. Who\'s on what, term limits, rotation schedules. Democratic accountability, visible to all members.',
+    description: 'Finance, hiring, operations, grievance. Who\'s on what, term limits, rotation fairness scoring. Democratic accountability, visible to all members.',
   },
   {
     icon: MessageSquare,
     title: 'Member Communication',
     description: 'Announcements, async discussions by committee. Not Slack-sprawl. Gentle NRI signals: "The hiring committee hasn\'t met in 3 weeks."',
+  },
+]
+
+const payments = [
+  {
+    icon: CreditCard,
+    title: 'Buy-In Collection',
+    description: 'Members pay their buy-in through Communis — one-time or installment plans. Money goes directly to your co-op\'s Stripe account. ICA ledger updates automatically.',
+  },
+  {
+    icon: CalendarDays,
+    title: 'Recurring Dues',
+    description: 'Automated monthly, quarterly, or annual member dues via Stripe Billing. Never chase a late payment again.',
+  },
+  {
+    icon: TrendingUp,
+    title: 'Patronage Payouts',
+    description: 'After a governance vote passes, Communis calculates allocations and sends payouts directly to member bank accounts. The full loop: vote → calculate → pay → 1099-PATR.',
+  },
+]
+
+const intelligence = [
+  {
+    icon: FolderOpen,
+    title: 'Document Intelligence',
+    description: 'Connect Google Drive or Dropbox. NRI reads your bylaws, handbooks, meeting minutes, and policies — then answers member questions from your actual documents, not generic info.',
+  },
+  {
+    icon: Globe,
+    title: 'Communio Knowledge Hub',
+    description: 'How cooperatives actually run — anonymized insights shared across co-ops with permission. Real stories from real co-ops. Questions answered by practitioners, not academics.',
+  },
+  {
+    icon: Search,
+    title: 'NRI Compass',
+    description: 'A knowledge-aware assistant scoped by role. Members ask "What\'s my equity?" Candidates ask "How does buy-in work?" Stewards ask "What\'s our cash reserve?" NRI answers from your co-op\'s real data.',
+  },
+]
+
+const education = [
+  {
+    icon: GraduationCap,
+    title: 'Rehearsal Votes',
+    description: 'Practice democratic decision-making before it counts. Try all 4 voting methods. See why each result happened. Available to candidates — because learning should start before voting rights.',
+  },
+  {
+    icon: BookOpen,
+    title: 'Cooperative Glossary',
+    description: '26 terms explained in plain language with relatable analogies. "Buy-in = like buying into a poker game, except you get it back when you leave." Inline tooltips throughout the app.',
+  },
+  {
+    icon: Library,
+    title: 'Knowledge Base & Library',
+    description: '7 structured guides (Understanding Equity, How Governance Works, Patronage Explained) plus 12 curated books on cooperative economics, history, and practice. Google Books API integration.',
+  },
+  {
+    icon: Heart,
+    title: 'Welcome Experience & Milestones',
+    description: 'First-login walkthrough: "You just became one of 15,000 worker-owners." 23 milestone celebrations: first vote, buy-in complete, equity passed $5,000. NRI celebrates, never nags.',
   },
 ]
 
@@ -119,6 +170,24 @@ const nri = [
     icon: Sparkles,
     title: 'Prioritize',
     description: 'The next small, faithful step. Not a task list explosion. A quiet pointer toward what deserves your attention today.',
+  },
+]
+
+const integrations = [
+  {
+    icon: FileText,
+    title: 'QuickBooks / Xero',
+    description: 'Sync revenue, expenses, payroll hours, and bank balances. Write patronage journal entries back. Your accountant keeps QuickBooks. Your members get transparency through Communis.',
+  },
+  {
+    icon: Clock,
+    title: 'Time & Scheduling',
+    description: 'Import hours from Gusto, ADP, Square, Homebase, When I Work, Deputy, or CSV. Hours feed the patronage engine. No double entry.',
+  },
+  {
+    icon: CreditCard,
+    title: 'Stripe Connect',
+    description: 'Standard Connected Accounts. Your co-op owns the Stripe account. Members see your co-op\'s name on statements. Communis takes 0.5% and never holds your funds.',
   },
 ]
 
@@ -165,6 +234,21 @@ export default function FeaturesPage() {
         </div>
       </div>
 
+      {/* Payments */}
+      <div className="mt-20">
+        <h2 className="font-display text-2xl font-bold text-gray-900 mb-2">Payments</h2>
+        <p className="text-sm text-gray-400 mb-8">Powered by Stripe Connect — your money stays your money</p>
+        <div className="grid md:grid-cols-3 gap-6">
+          {payments.map(item => (
+            <div key={item.title} className="narrative-card">
+              <item.icon size={24} className="text-grove-600 mb-4" />
+              <h3 className="font-display text-lg font-semibold text-gray-900">{item.title}</h3>
+              <p className="mt-2 text-sm text-gray-500 leading-relaxed">{item.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
       {/* Governance */}
       <div className="mt-20">
         <h2 className="font-display text-2xl font-bold text-gray-900 mb-2">Governance</h2>
@@ -180,6 +264,36 @@ export default function FeaturesPage() {
         </div>
       </div>
 
+      {/* Intelligence */}
+      <div className="mt-20">
+        <h2 className="font-display text-2xl font-bold text-gray-900 mb-2">Intelligence</h2>
+        <p className="text-sm text-gray-400 mb-8">NRI reads your documents. Communio learns from the movement.</p>
+        <div className="grid md:grid-cols-3 gap-6">
+          {intelligence.map(item => (
+            <div key={item.title} className="narrative-card">
+              <item.icon size={24} className="text-warmth-600 mb-4" />
+              <h3 className="font-display text-lg font-semibold text-gray-900">{item.title}</h3>
+              <p className="mt-2 text-sm text-gray-500 leading-relaxed">{item.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Education */}
+      <div className="mt-20">
+        <h2 className="font-display text-2xl font-bold text-gray-900 mb-2">Education</h2>
+        <p className="text-sm text-gray-400 mb-8">From "I have no idea what a cooperative is" to "I understand my ownership"</p>
+        <div className="grid md:grid-cols-2 gap-6">
+          {education.map(item => (
+            <div key={item.title} className="narrative-card">
+              <item.icon size={24} className="text-grove-600 mb-4" />
+              <h3 className="font-display text-lg font-semibold text-gray-900">{item.title}</h3>
+              <p className="mt-2 text-sm text-gray-500 leading-relaxed">{item.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
       {/* Operations */}
       <div className="mt-20">
         <h2 className="font-display text-2xl font-bold text-gray-900 mb-2">Operations</h2>
@@ -188,6 +302,21 @@ export default function FeaturesPage() {
           {operations.map(item => (
             <div key={item.title} className="narrative-card">
               <item.icon size={24} className="text-terra-600 mb-4" />
+              <h3 className="font-display text-lg font-semibold text-gray-900">{item.title}</h3>
+              <p className="mt-2 text-sm text-gray-500 leading-relaxed">{item.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Integrations */}
+      <div className="mt-20">
+        <h2 className="font-display text-2xl font-bold text-gray-900 mb-2">Integrations</h2>
+        <p className="text-sm text-gray-400 mb-8">Keep your tools. Communis bridges the gap.</p>
+        <div className="grid md:grid-cols-3 gap-6">
+          {integrations.map(item => (
+            <div key={item.title} className="narrative-card">
+              <item.icon size={24} className="text-commons-600 mb-4" />
               <h3 className="font-display text-lg font-semibold text-gray-900">{item.title}</h3>
               <p className="mt-2 text-sm text-gray-500 leading-relaxed">{item.description}</p>
             </div>

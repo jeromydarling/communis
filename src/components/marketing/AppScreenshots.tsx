@@ -3,7 +3,7 @@
  * These appear on the marketing site to show Communis in action.
  */
 import { BrowserFrame } from './BrowserFrame'
-import { Landmark, Users, Vote, Sparkles, TrendingUp } from 'lucide-react'
+import { Landmark, Users, Vote, Sparkles, TrendingUp, FolderOpen, Globe, GraduationCap, Heart, BookOpen, MessageSquare, Bookmark } from 'lucide-react'
 
 export function DashboardScreenshot() {
   return (
@@ -199,6 +199,105 @@ export function MemberStoryScreenshot() {
             <p className="text-[10px] text-gray-400">Hours this year</p>
             <p className="font-display text-sm font-bold text-gray-900">1,720</p>
           </div>
+        </div>
+      </div>
+    </BrowserFrame>
+  )
+}
+
+export function CommunioScreenshot() {
+  return (
+    <BrowserFrame url="communis.coop/app/communio" className="max-w-xl">
+      <div className="p-4 bg-warmth-50 space-y-3" style={{ fontSize: '11px' }}>
+        <div className="flex items-center gap-2">
+          <Globe size={14} className="text-grove-500" />
+          <p className="font-display text-sm font-bold text-gray-900">Communio</p>
+          <span className="text-[9px] text-gray-400 ml-auto">8 insights · 3 questions</span>
+        </div>
+        <div className="bg-white rounded-lg border border-terra-100 p-3">
+          <p className="text-[10px] font-medium text-gray-900">We switched from consensus to consent — meetings got 40% shorter</p>
+          <p className="text-[9px] text-gray-400 mt-0.5">small Tech co-op · Pacific Northwest · 4yr old</p>
+          <p className="text-[9px] text-gray-500 mt-1.5 leading-relaxed line-clamp-2">
+            For 3 years we used full consensus. Meetings ran 3+ hours. We switched to consent...
+          </p>
+          <div className="flex items-center gap-3 mt-2 text-[9px] text-gray-400">
+            <span className="flex items-center gap-0.5"><Heart size={8} /> 67</span>
+            <span className="flex items-center gap-0.5"><MessageSquare size={8} /> 11</span>
+            <span className="flex items-center gap-0.5"><Bookmark size={8} /> 28</span>
+          </div>
+        </div>
+        <div className="bg-white rounded-lg border border-terra-100 p-2">
+          <div className="flex items-center gap-1.5">
+            <TrendingUp size={10} className="text-grove-500" />
+            <p className="text-[9px] font-medium text-gray-900">Pattern: Consent replacing consensus in small co-ops</p>
+            <span className="text-[8px] px-1 py-0.5 rounded bg-warmth-50 text-warmth-600 ml-auto">8 co-ops</span>
+          </div>
+        </div>
+      </div>
+    </BrowserFrame>
+  )
+}
+
+export function DocumentsScreenshot() {
+  return (
+    <BrowserFrame url="communis.coop/app/documents" className="max-w-xl">
+      <div className="p-4 bg-warmth-50 space-y-3" style={{ fontSize: '11px' }}>
+        <div className="flex items-center gap-2 mb-1">
+          <Sparkles size={14} className="text-grove-500" />
+          <p className="text-[10px] text-grove-700">NRI has read 7 documents (145 knowledge chunks)</p>
+        </div>
+        {[
+          { title: 'Evergreen Workers Co-op Bylaws', type: 'Bylaws', chunks: 42, source: '📁 Drive' },
+          { title: 'Member Handbook v3', type: 'Handbook', chunks: 28, source: '📁 Drive' },
+          { title: 'Board Minutes — Jan 2025', type: 'Minutes', chunks: 8, source: '📄 Upload' },
+        ].map(doc => (
+          <div key={doc.title} className="bg-white rounded-lg border border-terra-100 p-2 flex items-center gap-2">
+            <FolderOpen size={12} className="text-terra-400" />
+            <div className="flex-1">
+              <p className="text-[10px] font-medium text-gray-900">{doc.title}</p>
+              <div className="flex items-center gap-2 text-[8px] text-gray-400">
+                <span className="px-1 py-0.5 rounded bg-grove-50 text-grove-600">{doc.type}</span>
+                <span>{doc.chunks} chunks</span>
+                <span>{doc.source}</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </BrowserFrame>
+  )
+}
+
+export function EducationScreenshot() {
+  return (
+    <BrowserFrame url="communis.coop/app/rehearsal" className="max-w-xl">
+      <div className="p-4 bg-warmth-50 space-y-3" style={{ fontSize: '11px' }}>
+        <div className="flex items-center gap-2">
+          <GraduationCap size={14} className="text-warmth-500" />
+          <p className="font-display text-sm font-bold text-gray-900">Rehearsal Vote</p>
+          <span className="text-[9px] px-1.5 py-0.5 rounded-full bg-warmth-100 text-warmth-600">Practice</span>
+        </div>
+        <div className="bg-white rounded-lg border-2 border-dashed border-warmth-200 p-3">
+          <p className="text-[10px] font-medium text-gray-900">Should we adopt a 4-day work week?</p>
+          <p className="text-[9px] text-gray-400 mt-1">Majority vote · Quorum: 50%</p>
+        </div>
+        <div className="grid grid-cols-3 gap-2">
+          <div className="bg-grove-50 border border-grove-200 rounded-lg p-2 text-center">
+            <p className="text-[10px] font-medium text-grove-700">✓ For</p>
+          </div>
+          <div className="bg-white border border-gray-200 rounded-lg p-2 text-center">
+            <p className="text-[10px] text-gray-500">✗ Against</p>
+          </div>
+          <div className="bg-white border border-gray-200 rounded-lg p-2 text-center">
+            <p className="text-[10px] text-gray-500">— Abstain</p>
+          </div>
+        </div>
+        <div className="bg-grove-50 border border-grove-200 rounded-lg p-2">
+          <div className="flex items-center gap-1.5">
+            <span className="text-grove-600 text-[10px] font-bold">✓ Passed</span>
+            <span className="text-[8px] text-gray-400">· 4 for · 1 abstain · Quorum met</span>
+          </div>
+          <p className="text-[8px] text-gray-500 mt-1">This majority vote passed because more than 50% voted yes.</p>
         </div>
       </div>
     </BrowserFrame>
