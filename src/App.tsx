@@ -8,7 +8,11 @@ import PricingPage from './pages/PricingPage'
 import ManifestoPage from './pages/ManifestoPage'
 import OpenSourcePage from './pages/OpenSourcePage'
 import MapPage from './pages/MapPage'
+import ContactPage from './pages/ContactPage'
 import DemoGatePage from './pages/DemoGatePage'
+import TermsPage from './pages/legal/TermsPage'
+import PrivacyPage from './pages/legal/PrivacyPage'
+import AITransparencyPage from './pages/legal/AITransparencyPage'
 import DashboardPage from './pages/DashboardPage'
 import MembersPage from './pages/MembersPage'
 import MemberStoryPage from './pages/MemberStoryPage'
@@ -26,6 +30,13 @@ import KnowledgeBasePage from './pages/KnowledgeBasePage'
 import LibraryPage from './pages/LibraryPage'
 import DocumentsPage from './pages/DocumentsPage'
 import CommunioPage from './pages/CommunioPage'
+import ReportsPage from './pages/ReportsPage'
+import AnnouncementsPage from './pages/AnnouncementsPage'
+import MeetingsPage from './pages/MeetingsPage'
+import BylawsPage from './pages/BylawsPage'
+import ConversionPage from './pages/ConversionPage'
+import AdvisorDashboardPage from './pages/AdvisorDashboardPage'
+import AnnualMeetingPage from './pages/AnnualMeetingPage'
 import GardenerOverview from './pages/gardener/GardenerOverview'
 import GardenerTenants from './pages/gardener/GardenerTenants'
 import GardenerContent from './pages/gardener/GardenerContent'
@@ -46,7 +57,11 @@ export default function App() {
         <Route path="/manifesto" element={<ManifestoPage />} />
         <Route path="/open-source" element={<OpenSourcePage />} />
         <Route path="/map" element={<MapPage />} />
+        <Route path="/contact" element={<ContactPage />} />
         <Route path="/demo" element={<DemoGatePage />} />
+        <Route path="/legal/terms" element={<TermsPage />} />
+        <Route path="/legal/privacy" element={<PrivacyPage />} />
+        <Route path="/legal/ai-transparency" element={<AITransparencyPage />} />
       </Route>
 
       {/* App Demo */}
@@ -56,18 +71,25 @@ export default function App() {
         <Route path="members/:id" element={<MemberStoryPage />} />
         <Route path="governance" element={<GovernancePage />} />
         <Route path="patronage" element={<PatronagePage />} />
-        <Route path="import" element={<ImportPage />} />
-        <Route path="onboarding" element={<OnboardingPage />} />
+        <Route path="committees" element={<CommitteesPage />} />
+        <Route path="meetings" element={<MeetingsPage />} />
+        <Route path="bylaws" element={<BylawsPage />} />
+        <Route path="announcements" element={<AnnouncementsPage />} />
+        <Route path="reports" element={<ReportsPage />} />
         <Route path="payments" element={<PaymentsPage />} />
         <Route path="payments/setup" element={<PaymentSetupPage />} />
+        <Route path="documents" element={<DocumentsPage />} />
+        <Route path="communio" element={<CommunioPage />} />
         <Route path="integrations" element={<IntegrationsPage />} />
-        <Route path="committees" element={<CommitteesPage />} />
         <Route path="rehearsal" element={<RehearsalPage />} />
         <Route path="glossary" element={<GlossaryPage />} />
         <Route path="learn" element={<KnowledgeBasePage />} />
         <Route path="library" element={<LibraryPage />} />
-        <Route path="documents" element={<DocumentsPage />} />
-        <Route path="communio" element={<CommunioPage />} />
+        <Route path="conversion" element={<ConversionPage />} />
+        <Route path="advisor" element={<AdvisorDashboardPage />} />
+        <Route path="annual-meeting" element={<AnnualMeetingPage />} />
+        <Route path="import" element={<ImportPage />} />
+        <Route path="onboarding" element={<OnboardingPage />} />
       </Route>
 
       {/* Gardener Console */}

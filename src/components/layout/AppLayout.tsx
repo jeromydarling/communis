@@ -24,6 +24,10 @@ import {
   BookOpen,
   FolderOpen,
   Globe,
+  Megaphone,
+  Calendar,
+  FileText,
+  Scale,
 } from 'lucide-react'
 import type { CoopRole } from '@/types'
 import { ROLE_PERMISSIONS } from '@/types'
@@ -34,6 +38,10 @@ const allNavItems = [
   { to: '/app/governance', icon: Vote, label: 'Governance', minRole: 'member' as CoopRole },
   { to: '/app/patronage', icon: PieChart, label: 'Patronage', minRole: 'member' as CoopRole },
   { to: '/app/committees', icon: UsersRound, label: 'Committees', minRole: 'member' as CoopRole },
+  { to: '/app/meetings', icon: Calendar, label: 'Meetings', minRole: 'member' as CoopRole },
+  { to: '/app/bylaws', icon: Scale, label: 'Bylaws', minRole: 'member' as CoopRole },
+  { to: '/app/announcements', icon: Megaphone, label: 'Announcements', minRole: 'member' as CoopRole },
+  { to: '/app/reports', icon: FileText, label: 'Reports', minRole: 'coordinator' as CoopRole },
   { to: '/app/payments', icon: CreditCard, label: 'Payments', minRole: 'coordinator' as CoopRole },
   { to: '/app/documents', icon: FolderOpen, label: 'Documents', minRole: 'member' as CoopRole },
   { to: '/app/communio', icon: Globe, label: 'Communio', minRole: 'member' as CoopRole },

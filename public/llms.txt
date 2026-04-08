@@ -1,0 +1,79 @@
+# Communis — The Operating System for Worker Cooperatives
+# https://communis.coop
+
+> Communis replaces spreadsheets with relationship memory, cooperative intelligence, and narrative-first tools for worker-owned businesses. Built on CROS (Communal Relationship Operating System) with NRI (Narrative Relational Intelligence).
+
+Website: https://communis.coop
+Contact: https://communis.coop/contact
+Demo: https://communis.coop/demo
+
+## What Communis Does
+
+Communis is a cooperative management platform serving the ~1,300 worker cooperatives in the United States. It provides:
+
+- **Internal Capital Account (ICA) tracking** — member equity, buy-in contributions, patronage allocations, revolvement schedules
+- **Patronage distribution engine** — surplus allocation by hours/revenue/equal, Subchapter T compliance, 1099-PATR generation
+- **Democratic governance** — proposals, voting (majority/supermajority/consensus/consent), rehearsal votes for practice
+- **Stripe Connect payments** — buy-in collection, recurring dues, patronage payouts directly to member bank accounts
+- **Document intelligence** — Google Drive/Dropbox sync, NRI reads bylaws/policies/minutes and answers member questions
+- **Communio knowledge hub** — anonymized cross-cooperative knowledge sharing, real operational insights from real co-ops
+- **NRI Compass** — role-scoped AI assistant that answers questions from the co-op's actual data and documents
+- **Cooperative education** — plain-language glossary, rehearsal votes, knowledge base, curated library, milestone celebrations
+- **QuickBooks/Xero integration** — financial transparency dashboards synced from accounting, patronage journal entries written back
+- **Committee management** — meeting schedules, term tracking, rotation fairness scoring
+
+## Pricing
+
+Two tiers, same features:
+- **Communis** — $49/mo (free for co-ops with ≤5 members). All features included.
+- **Communis + Payments** — $49/mo + 0.5% per transaction. Adds Stripe Connect for buy-ins, dues, and patronage payouts.
+
+## Key Pages
+
+- / — Homepage
+- /features — All features across 8 categories
+- /pricing — Two-tier pricing with Stripe Connect explanation
+- /map — Interactive US map with 408 geocoded cooperatives
+- /manifesto — Cooperative history and CROS philosophy
+- /open-source — Tech stack breakdown
+- /contact — Get in touch / Sign up
+- /demo — Interactive demo with role switcher (5 roles)
+
+## App Demo Pages
+
+- /app — Dashboard with NRI signals and equity overview
+- /app/members — Member roster with status and equity
+- /app/members/:id — Individual member story with narrative equity summary
+- /app/governance — Democratic proposals and voting
+- /app/patronage — Surplus distribution with tax compliance
+- /app/committees — Committee management and rotation fairness
+- /app/payments — Stripe Connect dashboard (buy-ins, dues, payouts)
+- /app/integrations — QuickBooks financial dashboard
+- /app/documents — Document library with NRI learning
+- /app/communio — Cross-cooperative knowledge hub
+- /app/rehearsal — Practice voting with all 4 methods
+- /app/glossary — 26 cooperative terms in plain language
+- /app/learn — Knowledge base with structured guides
+- /app/library — Curated cooperative reading list
+- /app/import — CSV import with fuzzy field mapping
+- /app/onboarding — Cooperative setup wizard with 8 templates
+
+## Architecture
+
+- Built on CROS (Communal Relationship Operating System) philosophy
+- NRI (Narrative Relational Intelligence) — rule-based signal detection, AI for phrasing only
+- NRI Core Loop: Recognize · Synthesize · Prioritize
+- Multi-tenant with row-level security per cooperative
+- Role system: Candidate → Member → Coordinator → Steward → Advisor → Gardener
+- Bylaw-configurable: every co-op's rules are different, the system adapts
+
+## Tech Stack
+
+React, TypeScript, Vite, Tailwind CSS, Supabase (PostgreSQL + Auth + Edge Functions), Stripe Connect, Lucide Icons
+
+## Target Market
+
+- ~1,300 US worker cooperatives
+- ~30,000 all US cooperatives
+- ~378,000 global cooperatives (CICOPA)
+- 2.9 million US businesses facing succession (silver tsunami)

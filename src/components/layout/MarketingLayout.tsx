@@ -89,7 +89,7 @@ export default function MarketingLayout() {
 
       <footer className="border-t border-terra-100 bg-warmth-50">
         <div className="max-w-6xl mx-auto px-6 py-12">
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-5 gap-8">
             <div className="md:col-span-2">
               <p className="font-display text-lg font-semibold text-grove-800">communis</p>
               <p className="mt-2 text-sm text-gray-500 max-w-sm">
@@ -102,18 +102,29 @@ export default function MarketingLayout() {
                 <Link to="/features" className="block text-sm text-gray-600 hover:text-grove-600">Features</Link>
                 <Link to="/pricing" className="block text-sm text-gray-600 hover:text-grove-600">Pricing</Link>
                 <Link to="/demo" className="block text-sm text-gray-600 hover:text-grove-600">Demo</Link>
+                <Link to="/contact" className="block text-sm text-gray-600 hover:text-grove-600">Sign Up</Link>
               </div>
             </div>
             <div>
               <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-3">Community</p>
               <div className="space-y-2">
                 <Link to="/manifesto" className="block text-sm text-gray-600 hover:text-grove-600">Manifesto</Link>
-                <span className="block text-sm text-gray-400">Open Source (coming soon)</span>
+                <Link to="/map" className="block text-sm text-gray-600 hover:text-grove-600">Cooperative Map</Link>
+                <Link to="/open-source" className="block text-sm text-gray-600 hover:text-grove-600">Open Source</Link>
+              </div>
+            </div>
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-3">Legal</p>
+              <div className="space-y-2">
+                <Link to="/legal/terms" className="block text-sm text-gray-600 hover:text-grove-600">Terms of Service</Link>
+                <Link to="/legal/privacy" className="block text-sm text-gray-600 hover:text-grove-600">Privacy Policy</Link>
+                <Link to="/legal/ai-transparency" className="block text-sm text-gray-600 hover:text-grove-600">AI Transparency</Link>
               </div>
             </div>
           </div>
-          <div className="mt-10 pt-6 border-t border-terra-100 text-xs text-gray-400">
-            communis.coop — Technology should carry the weight. Humans carry the meaning.
+          <div className="mt-10 pt-6 border-t border-terra-100 flex items-center justify-between text-xs text-gray-400">
+            <span>communis.coop — Technology should carry the weight. Humans carry the meaning.</span>
+            <Link to="/contact" className="text-grove-600 hover:text-grove-700 font-medium">Get Started →</Link>
           </div>
         </div>
       </footer>

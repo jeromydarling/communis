@@ -1,0 +1,18 @@
+{
+  "name": "Communis",
+  "short_name": "Communis",
+  "description": "The operating system for worker cooperatives",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#faf6f1",
+  "theme_color": "#2d6f3d",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "categories": ["business", "finance", "productivity"]
+}
