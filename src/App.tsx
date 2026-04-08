@@ -24,6 +24,8 @@ import RehearsalPage from './pages/RehearsalPage'
 import GlossaryPage from './pages/GlossaryPage'
 import KnowledgeBasePage from './pages/KnowledgeBasePage'
 import LibraryPage from './pages/LibraryPage'
+import DocumentsPage from './pages/DocumentsPage'
+import CommunioPage from './pages/CommunioPage'
 import GardenerOverview from './pages/gardener/GardenerOverview'
 import GardenerTenants from './pages/gardener/GardenerTenants'
 import GardenerContent from './pages/gardener/GardenerContent'
@@ -64,6 +66,8 @@ export default function App() {
         <Route path="glossary" element={<GlossaryPage />} />
         <Route path="learn" element={<KnowledgeBasePage />} />
         <Route path="library" element={<LibraryPage />} />
+        <Route path="documents" element={<DocumentsPage />} />
+        <Route path="communio" element={<CommunioPage />} />
       </Route>
 
       {/* Gardener Console */}

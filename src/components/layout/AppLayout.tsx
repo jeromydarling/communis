@@ -22,6 +22,8 @@ import {
   UsersRound,
   GraduationCap,
   BookOpen,
+  FolderOpen,
+  Globe,
 } from 'lucide-react'
 import type { CoopRole } from '@/types'
 import { ROLE_PERMISSIONS } from '@/types'
@@ -33,6 +35,8 @@ const allNavItems = [
   { to: '/app/patronage', icon: PieChart, label: 'Patronage', minRole: 'member' as CoopRole },
   { to: '/app/committees', icon: UsersRound, label: 'Committees', minRole: 'member' as CoopRole },
   { to: '/app/payments', icon: CreditCard, label: 'Payments', minRole: 'coordinator' as CoopRole },
+  { to: '/app/documents', icon: FolderOpen, label: 'Documents', minRole: 'member' as CoopRole },
+  { to: '/app/communio', icon: Globe, label: 'Communio', minRole: 'member' as CoopRole },
   { to: '/app/integrations', icon: Link2, label: 'Integrations', minRole: 'coordinator' as CoopRole },
   { to: '/app/learn', icon: GraduationCap, label: 'Learn', minRole: 'candidate' as CoopRole },
   { to: '/app/glossary', icon: BookOpen, label: 'Glossary', minRole: 'candidate' as CoopRole },
