@@ -10,8 +10,8 @@ export default function MarketingLayout() {
     { to: '/features', label: 'Features' },
     { to: '/pricing', label: 'Pricing' },
     { to: '/map', label: 'Map' },
-    { to: '/manifesto', label: 'Manifesto' },
-    { to: '/open-source', label: 'Open Source' },
+    { to: '/compare', label: 'Why Communis' },
+    { to: '/about', label: 'About' },
   ]
 
   return (
@@ -106,9 +106,13 @@ export default function MarketingLayout() {
               </div>
             </div>
             <div>
-              <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-3">Community</p>
+              <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-3">Learn</p>
               <div className="space-y-2">
+                <Link to="/compare" className="block text-sm text-gray-600 hover:text-grove-600">Why Communis</Link>
+                <Link to="/week" className="block text-sm text-gray-600 hover:text-grove-600">A Week at a Co-op</Link>
+                <Link to="/faq" className="block text-sm text-gray-600 hover:text-grove-600">FAQ</Link>
                 <Link to="/manifesto" className="block text-sm text-gray-600 hover:text-grove-600">Manifesto</Link>
+                <Link to="/about" className="block text-sm text-gray-600 hover:text-grove-600">About</Link>
                 <Link to="/map" className="block text-sm text-gray-600 hover:text-grove-600">Cooperative Map</Link>
                 <Link to="/open-source" className="block text-sm text-gray-600 hover:text-grove-600">Open Source</Link>
               </div>
