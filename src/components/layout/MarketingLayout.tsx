@@ -11,6 +11,7 @@ export default function MarketingLayout() {
     { to: '/pricing', label: 'Pricing' },
     { to: '/map', label: 'Map' },
     { to: '/compare', label: 'Why Communis' },
+    { to: '/learn', label: 'Learn' },
     { to: '/about', label: 'About' },
   ]
 

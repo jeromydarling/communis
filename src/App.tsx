@@ -14,6 +14,7 @@ import BeforeAfterPage from './pages/BeforeAfterPage'
 import FAQPage from './pages/FAQPage'
 import WeekAtCoopPage from './pages/WeekAtCoopPage'
 import AboutPage from './pages/AboutPage'
+import LearnLandingPage from './pages/LearnLandingPage'
 import TermsPage from './pages/legal/TermsPage'
 import PrivacyPage from './pages/legal/PrivacyPage'
 import AITransparencyPage from './pages/legal/AITransparencyPage'
@@ -66,6 +67,7 @@ export default function App() {
         <Route path="/faq" element={<FAQPage />} />
         <Route path="/week" element={<WeekAtCoopPage />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/learn" element={<LearnLandingPage />} />
         <Route path="/demo" element={<DemoGatePage />} />
         <Route path="/legal/terms" element={<TermsPage />} />
         <Route path="/legal/privacy" element={<PrivacyPage />} />
