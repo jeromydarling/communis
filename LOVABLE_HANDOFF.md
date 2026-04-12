@@ -1,180 +1,200 @@
 # Communis — Lovable Implementation Prompt
 
-> **Purpose**: This document is the single-source handoff from the scaffold repo to Lovable. It contains everything Lovable needs to build the production app without back-and-forth clarification. Read the entire document before generating any code.
+> **CRITICAL**: This app is NOT done when it compiles. This app is NOT done when pages render. This app is DONE when every feature is wired front-to-back — real data flows from Supabase to UI, real auth gates routes, real Stripe processes payments, real NRI answers from real documents. A page that renders static demo data is a scaffold, not a feature. **Build the complete, functioning application. Leave no stone unturned.**
+
+> Read the entire document before generating any code.
 
 ---
 
 ## What Communis Is
 
-Communis is a cooperative management platform — the operating system for worker cooperatives. It replaces the spreadsheet-and-Loomio-and-QuickBooks patchwork that co-ops use today with an integrated system for member equity tracking, patronage distribution, democratic governance, and financial transparency.
+Communis is a cooperative management platform — the operating system for worker cooperatives. It replaces the spreadsheet-and-Loomio-and-QuickBooks patchwork that co-ops use today with an integrated system for member equity tracking, patronage distribution, democratic governance, financial transparency, payments, document intelligence, and cooperative education.
 
-It is built on the **CROS (Communal Relationship Operating System)** philosophy: story guides structure, technology carries the weight, humans carry the meaning. The AI layer is called **NRI (Narrative Relational Intelligence)** — it follows a core loop of **Recognize · Synthesize · Prioritize**. NRI is rule-based (deterministic signal detection), not LLM-driven. AI assists with phrasing only.
+Built on **CROS (Communal Relationship Operating System)**: story guides structure, technology carries the weight, humans carry the meaning. AI layer is **NRI (Narrative Relational Intelligence)** — Recognize · Synthesize · Prioritize. NRI is rule-based. AI assists with phrasing only.
 
-**Domain**: communis.coop
-**Target market**: ~1,300 US worker cooperatives, expanding to 30,000+ all US cooperatives
-**Business model**: SaaS + Stripe Connect transaction fees
-
----
-
-## What Already Exists in This Repo
-
-The scaffold repo contains **57 files, ~11,000 lines** of working React + TypeScript + Tailwind CSS. Everything builds and runs. The scaffold includes:
-
-### Marketing Site (7 pages)
-- `/` — Homepage with animated SVG cooperative network, live browser-frame screenshots, stats, CROS body section
-- `/features` — 13 feature modules across 4 categories
-- `/pricing` — Two-tier model (details below)
-- `/map` — Interactive TopoJSON US map with 408 geocoded cooperatives, industry filter, hover tooltips
-- `/manifesto` — Cooperative history from Rochdale to civil rights to silver tsunami
-- `/open-source` — Stack breakdown with bug/feature request links
-- `/demo` — Contact form gate (bypassable)
-
-### App Demo (11 pages)
-- `/app` — Dashboard with NRI greeting, stats, signals, equity overview
-- `/app/members` — Member roster with status badges, equity progress
-- `/app/members/:id` — Member Story (CROS narrative, equity journey)
-- `/app/governance` — Proposals, voting UI, discussion/voting/resolved
-- `/app/patronage` — Surplus distribution table, qualified/non-qualified splits
-- `/app/committees` — Committee management with rotation fairness index
-- `/app/payments` — Stripe Connect dashboard (buy-ins, dues, patronage payouts)
-- `/app/payments/setup` — Payment onboarding (choose which features to enable)
-- `/app/integrations` — QuickBooks financial dashboard, time source connections
-- `/app/import` — "Bring Your Mess" CSV import with fuzzy field mapping
-- `/app/onboarding` — Cooperative setup wizard with 8 templates
-
-### Gardener Console (8 pages)
-- `/gardener` — Dark-themed operator console with tenant overview, KPIs, system signals
-- `/gardener/tenants` — Cooperative management (stub)
-- `/gardener/content` — Perplexity AI essay pipeline (draft/review/published)
-- `/gardener/seo` — Keyword rankings, Perplexity query scheduler
-- `/gardener/analytics` — Platform metrics (stub)
-- `/gardener/system` — Service health (Supabase, Stripe, Perplexity, DeepL)
-- `/gardener/inbox` — Support tickets (stub)
-- `/gardener/settings` — API keys, feature flags (stub)
-
-### Infrastructure Already Built
-- **Type system**: 4 files (`types/index.ts`, `payments.ts`, `integrations.ts`, `scheduling.ts`) with complete cooperative data model
-- **Context providers**: `AccessibilityProvider → DemoModeProvider → AuthProvider → TenantProvider` (CROS nesting pattern)
-- **Role system**: 6 roles with permission matrix, role switcher in demo
-- **NRI engine**: `scopeGuardrails.ts` (crisis/off-topic detection), `signalEngine.ts` (7 deterministic rules)
-- **NRI Compass**: Chat drawer with quick prompts, role-scoped responses, typing indicator
-- **i18n**: English/Spanish with 30+ cooperative glossary terms, `t()` function, DeepL config
-- **Accessibility**: WCAG 2.2 AA mode (focus rings, killed animations, touch targets)
-- **Notifications**: Type system with 12 templates, preference system, channel routing
-- **SEO Engine**: Perplexity query types, 8 default queries, 14 tracked keywords
-- **CSV Parser**: Auto-delimiter detection, fuzzy field mapping
-- **408 geocoded cooperatives** from USFWC directory data
-- **8 cooperative templates** (cleaning, tech, food, construction, childcare, consulting, retail, custom) with pre-filled bylaws
+**Domain**: communis.coop  
+**Market**: ~1,300 US worker cooperatives → 30,000+ all US cooperatives  
+**Model**: SaaS ($49/mo) + Stripe Connect transaction fees (0.5%)
 
 ---
 
-## What Lovable Needs to Build
+## What Already Exists — 87 files, ~16,000 lines
 
-### Phase 1: Supabase Backend (do this FIRST)
+Everything builds, runs, and renders with demo data. **Your job is to replace demo data with real Supabase queries, real auth, real Stripe, and real API integrations — for EVERY page.**
 
-**Auth**: Supabase Auth with email/password. On signup, create a profile row and tenant_users membership. The `profiles` table stores `display_name`, `nickname`, `timezone`, `is_approved`. The `user_roles` table stores role assignments.
+### Marketing Site (16 pages)
+| Route | Page | Status |
+|---|---|---|
+| `/` | Homepage — hero, animated SVG, 6 live browser screenshots, 9 features, CROS body, stats | Complete |
+| `/features` | 8 feature categories, 30+ feature cards | Complete |
+| `/pricing` | Two-tier with Stripe signup buttons | Wire Stripe checkout links |
+| `/map` | 408 geocoded cooperatives, TopoJSON map | Complete |
+| `/compare` | Before/after comparison, real pain quotes, cost analysis | Complete |
+| `/learn` | Learning hub — links to all educational resources | Complete |
+| `/week` | "A Week at a Cleaning Co-op" — 7-day narrative | Complete |
+| `/faq` | 12 FAQ accordion items | Complete |
+| `/manifesto` | Cooperative history, CROS philosophy | Complete |
+| `/about` | About page, beliefs, ecosystem partners | Complete |
+| `/open-source` | Tech stack, feedback links | Complete |
+| `/contact` | Stripe signup cards + contact form | Wire Stripe + form submission |
+| `/demo` | Demo gate with contact form | Wire form to Supabase |
+| `/legal/terms` | Terms of Service | Complete |
+| `/legal/privacy` | Privacy Policy | Complete |
+| `/legal/ai-transparency` | AI Transparency policy | Complete |
 
-**Multi-tenancy**: Every table has a `tenant_id` column with RLS policies: `auth.uid()` must be in `tenant_users` for that tenant. Use the existing type definitions in `src/types/` as the schema source of truth.
+### App (24 pages) — ALL need real Supabase wiring
+| Route | Page | What to wire |
+|---|---|---|
+| `/app` | Dashboard | Query members, proposals, signals, ICA aggregates |
+| `/app/members` | Member roster | Query members + ICA balances |
+| `/app/members/:id` | Member Story | Query member + transactions + labor + committees |
+| `/app/governance` | Proposals & voting | Query proposals + votes, WRITE votes |
+| `/app/patronage` | Patronage distribution | Query runs + allocations, TRIGGER from vote |
+| `/app/committees` | Committees & fairness | Query committees + memberships + rotation |
+| `/app/meetings` | Meeting management | CRUD meetings, agenda, minutes, quorum, RSVP |
+| `/app/bylaws` | Bylaws registry | Query bylaws sections, amendment history |
+| `/app/announcements` | Communication | CRUD announcements + committee threads |
+| `/app/reports` | Narrative reports | Generate from real data, PDF export |
+| `/app/payments` | Stripe dashboard | Query Stripe transactions via edge functions |
+| `/app/payments/setup` | Payment onboarding | Real Stripe Connect OAuth flow |
+| `/app/documents` | Document library | Google Drive/Dropbox OAuth, file sync, NRI indexing |
+| `/app/communio` | Knowledge hub | Cross-tenant queries, consent management, replies |
+| `/app/integrations` | QuickBooks dashboard | Real QBO OAuth + data sync |
+| `/app/rehearsal` | Rehearsal votes | WRITE practice votes, store results |
+| `/app/glossary` | Cooperative glossary | Complete (static content) |
+| `/app/learn` | Knowledge base | Track read progress per member |
+| `/app/library` | Cooperative library | Google Books API for covers |
+| `/app/conversion` | Conversion toolkit | Checklist persistence per tenant |
+| `/app/advisor` | Advisor multi-coop view | Cross-tenant read queries (advisor role) |
+| `/app/annual-meeting` | Annual meeting workflow | Aggregate from governance + finance + members |
+| `/app/import` | CSV import wizard | Parse → map → WRITE to Supabase tables |
+| `/app/onboarding` | Cooperative setup | CREATE tenant + bylaws + committees |
 
-**Core tables** (create migrations in this order):
-1. `tenants` — cooperative profile (matches `Tenant` type)
-2. `bylaw_configs` — one per tenant (matches `BylawConfig` type)
-3. `profiles` + `user_roles` + `tenant_users` — auth and membership
-4. `members` — cooperative members (matches `Member` type)
-5. `ica_transactions` — internal capital account ledger (matches `ICATransaction` type)
-6. `patronage_runs` + `patronage_allocations` — patronage engine
-7. `proposals` + `votes` — governance
-8. `committees` + `committee_memberships` — committee management
-9. `meetings` — meeting management
-10. `labor_entries` — hours tracking
-11. `nri_signals` — NRI signal storage
-12. `import_batches` — import tracking
-13. `notifications` + `notification_preferences` — notification system
-
-**RLS pattern**: For every table, create a policy where `tenant_id = (SELECT tenant_id FROM tenant_users WHERE user_id = auth.uid() LIMIT 1)`.
-
-### Phase 2: Replace Demo Data with Real Queries
-
-Every page currently renders from static demo data in `src/data/demo.ts`. Replace each with real Supabase queries using TanStack React Query (already a CROS pattern — 30s stale time, 5min GC, 1 retry).
-
-- `DashboardPage` → query members, proposals, nri_signals, ica aggregate
-- `MembersPage` → query members with ICA balance aggregate
-- `MemberStoryPage` → query single member + ica_transactions + labor_entries
-- `GovernancePage` → query proposals + votes
-- `PatronagePage` → query patronage_runs + patronage_allocations
-- `CommitteesPage` → query committees + committee_memberships
-- `PaymentsPage` → query payment tables (see Phase 4)
-
-### Phase 3: Real Auth Flow
-
-Replace the `DemoModeContext` → `AuthContext` → `TenantContext` chain with real Supabase auth:
-
-1. `DemoModeContext` stays as-is (intercepting writes in demo mode)
-2. `AuthContext` connects to `supabase.auth.onAuthStateChange()`, fetches profile + roles
-3. `TenantContext` fetches tenant + bylaw_config + feature_flags from the user's tenant_users membership
-4. Add `/login`, `/signup`, `/forgot-password`, `/reset-password` pages
-5. Add `ProtectedRoute` checks against real auth state (scaffold already exists)
-6. Implement `ViewMode` context: "guided" (member) vs "full" (steward) workspace toggle
-
-### Phase 4: Stripe Connect
-
-Use Supabase Edge Functions for all Stripe operations. The type definitions in `src/types/payments.ts` are the contract.
-
-**Edge Functions to create**:
-- `stripe-connect-onboard` — Create Connected Account for cooperative, return onboarding URL
-- `stripe-connect-status` — Check if onboarding is complete, charges/payouts enabled
-- `buy-in-create-payment` — Create PaymentIntent (one-time) or Subscription (installments) for member buy-in
-- `buy-in-webhook` — Handle payment_intent.succeeded → write ICA transaction
-- `dues-create-subscription` — Create Stripe Billing subscription for recurring dues
-- `dues-webhook` — Handle invoice.paid → log payment
-- `patronage-payout` — Create Transfers to member bank accounts after governance vote passes
-- `stripe-webhook` — Central webhook handler routing to above
-
-**Platform fee**: Application fee of 0.5% on every transaction via Stripe Connect's `application_fee_amount` parameter.
-
-**Important**: Connected Account type should be `Standard` (co-op manages their own Stripe dashboard) not `Express` or `Custom`.
-
-### Phase 5: QuickBooks Integration
-
-Edge Functions:
-- `qbo-oauth-start` — Redirect to QuickBooks OAuth
-- `qbo-oauth-callback` — Exchange code for tokens, store encrypted
-- `qbo-sync` — Pull financial snapshot (revenue, expenses, net income, cash)
-- `qbo-sync-payroll` — Pull payroll hours → match to members → write labor_entries
-- `qbo-write-journal` — Push patronage journal entries back to QBO
-
-Use the types in `src/types/integrations.ts`.
-
-### Phase 6: NRI Compass (Production)
-
-The scaffold has the UI (`CompassDrawer`) and guardrails (`scopeGuardrails.ts`). For production:
-
-1. Create edge function `nri-compass-chat` that:
-   - Receives message + user role + tenant_id
-   - Runs scope guardrails server-side
-   - Queries relevant cooperative data based on role's `KnowledgeBoundary`
-   - Sends context + message to Claude API (or OpenAI) for response generation
-   - Returns response
-2. The signal engine (`signalEngine.ts`) runs as a scheduled edge function (`nri-generate-signals`) — daily or on data change. Writes to `nri_signals` table.
-3. NRI never makes decisions. It serves attention. The tone is calm, narrative, cooperative-aware.
-
-### Phase 7: Gardener Console (Production)
-
-The scaffold has layout + pages. For production:
-- Gardener is an `admin` role in `user_roles`
-- `/gardener` routes are wrapped in `ProtectedRoute requiredRoles={['admin']}`
-- Tenant impersonation: session-storage override of tenant context (pattern from CROS `TenantContext`)
-- Content Studio: Supabase table `essay_drafts` + edge function calling Perplexity API
-- SEO Engine: Supabase table `keyword_rankings` + `perplexity_queries` + scheduled edge functions
-
-### Phase 8: i18n + Accessibility
-
-- **i18n**: The scaffold has `src/i18n/index.ts` with `t()` function and en/es strings. Expand to full locale JSON files. Add DeepL edge function for translating user-generated content (proposals, meeting minutes). Add language switcher to settings.
-- **Accessibility**: The scaffold has `AccessibilityProvider` and CSS. Add toggle in user settings. Ensure all interactive elements have proper ARIA labels. Test with screen reader.
+### Gardener Console (8 pages) — ALL need real wiring
+| Route | What to wire |
+|---|---|
+| `/gardener` | Real tenant list, real KPIs, real system signals |
+| `/gardener/tenants` | Tenant detail, impersonation, config overrides |
+| `/gardener/content` | Perplexity API → essay drafts → editorial workflow |
+| `/gardener/seo` | Real keyword tracking, scheduled Perplexity queries |
+| `/gardener/analytics` | Recharts with real platform metrics |
+| `/gardener/system` | Real health checks (Supabase, Stripe, Perplexity, DeepL) |
+| `/gardener/inbox` | Support ticket management |
+| `/gardener/settings` | API key management, default templates, feature flags |
 
 ---
 
-## Pricing Model (source of truth)
+## COMPLETION REQUIREMENTS — Read This Carefully
+
+**The app is NOT complete until ALL of the following are true:**
+
+### Auth (every item must work)
+- [ ] Email/password signup creates profile + tenant_users row
+- [ ] Login redirects to `/:tenantSlug/` dashboard
+- [ ] Logout clears session and redirects to marketing site
+- [ ] Forgot password sends reset email
+- [ ] Reset password works with token from email
+- [ ] Role-based route protection: candidates can't access steward pages
+- [ ] Demo mode still works for unauthenticated users visiting `/demo`
+- [ ] Welcome Experience triggers on first login (component exists: `WelcomeExperience.tsx`)
+
+### Data (every page must query real data)
+- [ ] Zero pages render from `src/data/demo.ts` in production mode
+- [ ] Every page that shows member data queries `members` table
+- [ ] Every page that shows equity queries `ica_transactions` with aggregation
+- [ ] Every page that shows proposals queries `proposals` + `votes`
+- [ ] Every page that shows patronage queries `patronage_runs` + `patronage_allocations`
+- [ ] Computed values (ICA balance, patronage share, rotation fairness) are calculated from real data
+- [ ] TanStack React Query used for all data fetching (30s stale, 5min GC, 1 retry)
+
+### Mutations (every write action must persist)
+- [ ] Creating a proposal writes to `proposals` table
+- [ ] Casting a vote writes to `votes` table and updates proposal status
+- [ ] Running patronage calculates allocations and writes to `patronage_allocations`
+- [ ] A governance vote passing triggers the linked outcome (patronage distribution, member onboard)
+- [ ] Adding a member writes to `members` table
+- [ ] Logging hours writes to `labor_entries` table
+- [ ] Importing CSV writes to the target table (members, ICA, labor)
+- [ ] Creating a meeting writes to `meetings` table
+- [ ] Posting an announcement writes to `announcements` table
+- [ ] Saving bylaws amendments writes to `bylaw_amendments` table
+- [ ] Sharing a Communio insight writes to `communio_insights` table
+
+### Stripe Connect (every payment flow must work end-to-end)
+- [ ] Cooperative can connect Stripe account via OAuth (Standard Connected Account)
+- [ ] Members can pay buy-in (one-time or installment subscription)
+- [ ] Payment success writes ICA transaction automatically
+- [ ] Recurring dues create Stripe Billing subscriptions
+- [ ] Patronage payouts send Stripe Transfers to member bank accounts
+- [ ] Webhook handler processes all payment events
+- [ ] Platform fee (0.5%) applied via `application_fee_amount`
+- [ ] Payment dashboard shows real transaction data from Stripe
+
+### Integrations (each must complete OAuth + data sync)
+- [ ] QuickBooks: OAuth → token storage → financial data pull → display in dashboard
+- [ ] QuickBooks: Patronage journal entries written back to QBO
+- [ ] Google Drive: OAuth → folder selection → document sync → NRI indexing
+- [ ] Dropbox: OAuth → folder selection → document sync → NRI indexing
+- [ ] Time sources: At least CSV import of hours working end-to-end
+
+### NRI (must work with real cooperative data)
+- [ ] Signal engine runs on real data (not demo data) — scheduled or on-change
+- [ ] Compass chat queries real member data, real documents, real bylaws
+- [ ] Scope guardrails block crisis/off-topic/professional-advice server-side
+- [ ] Role-scoped knowledge boundaries enforced (candidates can't query steward data)
+- [ ] Milestone detection triggers on real events (first vote, buy-in complete, etc.)
+
+### Gardener Console (must work with real multi-tenant data)
+- [ ] Overview shows real tenant list with real KPIs
+- [ ] Impersonation allows viewing any tenant as any role
+- [ ] Content Studio calls Perplexity API and stores essay drafts
+- [ ] SEO Engine runs scheduled queries and tracks keyword rankings
+- [ ] System health checks real service endpoints
+
+### i18n (must be complete)
+- [ ] Every user-facing string uses `t()` function
+- [ ] Language switcher in user settings
+- [ ] Spanish translations complete for all UI strings
+- [ ] DeepL edge function translates user-generated content (proposals, minutes)
+
+### Reports (must generate from real data)
+- [ ] Year-in-Review generates narrative from real member/financial/governance data
+- [ ] Patronage Letter populates from real patronage run data
+- [ ] Member Equity Statement populates from real ICA transactions
+- [ ] Governance Narrative populates from real proposals/votes
+- [ ] PDF export works for all report types
+
+### Edge Cases That Must Work
+- [ ] New tenant with zero members sees empty states, not errors
+- [ ] Departing member triggers revolvement schedule calculation
+- [ ] Patronage run with zero surplus handles gracefully
+- [ ] Consensus vote with a block correctly prevents passage
+- [ ] Member with incomplete buy-in can't receive patronage (bylaw-dependent)
+- [ ] Candidate role correctly restricts all candidate-restricted features
+
+---
+
+## Implementation Order
+
+**Do not skip ahead. Each phase depends on the previous one.**
+
+1. **Supabase schema** — Create ALL tables with RLS. Test that RLS works.
+2. **Auth flow** — Signup, login, logout, reset, role fetching. Test with real users.
+3. **Tenant + Bylaws** — Create tenant on signup, configure bylaws. Test cooperative creation.
+4. **Core data** — Members, ICA, patronage, governance, committees, meetings, labor. Wire every page.
+5. **Stripe Connect** — All payment flows. Test with Stripe test mode.
+6. **QuickBooks** — OAuth + sync. Test with QBO sandbox.
+7. **Document connectors** — Google Drive + Dropbox OAuth + NRI indexing.
+8. **NRI production** — Claude API edge function for compass. Scheduled signal generation.
+9. **Communio** — Cross-tenant sharing with consent and anonymization.
+10. **Gardener console** — Impersonation, content studio, SEO engine.
+11. **i18n** — Full Spanish translations, DeepL integration.
+12. **Reports** — PDF generation from real data.
+13. **API keys** — Connect real Stripe, QuickBooks, Google, Dropbox, Perplexity, DeepL, Claude API keys. **This is the LAST step.**
+
+---
+
+## Pricing Model
 
 **Two tiers, same features:**
 
@@ -187,7 +207,7 @@ The scaffold has layout + pages. For production:
 
 ---
 
-## Role System (source of truth)
+## Role System
 
 | Role | See own equity | See all equity | Vote | Manage members | Manage bylaws | Run patronage | Access gardener |
 |---|---|---|---|---|---|---|---|
@@ -198,103 +218,70 @@ The scaffold has layout + pages. For production:
 | Advisor | No | Yes | No | No | No | No | No |
 | Gardener | Yes | Yes | N/A | Yes | Yes | Yes | Yes |
 
-Visibility of financial data to Members and Candidates is **bylaw-configurable** via `BylawConfig.visibility_rules`.
-
 ---
 
 ## Design System
 
-**Fonts**: Source Serif 4 (headings), Inter (body)
-**Colors**: Earthy cooperative palette defined in `tailwind.config.js`:
-- `grove` (green) — primary actions, positive states, equity
-- `terra` (brown) — borders, subtle backgrounds
-- `warmth` (amber/orange) — warnings, candidates, financial highlights
-- `commons` (blue-gray) — governance, informational
-
-**Components**:
-- `.narrative-card` — white/80 backdrop-blur, terra border, rounded-2xl, p-6
-- `.calm-button-primary` — grove-600, rounded-xl, hover shadow
-- `.calm-button-secondary` — white, grove border
-- `.signal-dot` — 2px pulsing indicator
-
-**Gardener console**: Dark theme (gray-900/950) with grove-400 accents.
-
-**Philosophy**: Calm, narrative-first. No alert fatigue. No dashboard urgency. Equity statements read like sentences, not spreadsheets. "Your equity of $12,480 reflects 6 years of shared ownership."
+**Fonts**: Source Serif 4 (headings), Inter (body)  
+**Colors**: grove (green), terra (brown), warmth (amber), commons (blue-gray)  
+**Gardener**: Dark theme (gray-900/950) with grove-400 accents  
+**Voice**: Calm, narrative-first. No alert fatigue. Reports are letters, not ledgers. Equity is a sentence, not a number.
 
 ---
 
-## Tech Stack
+## Type System (source of truth for schema)
 
-- **Frontend**: React 19, TypeScript, Vite, Tailwind CSS 3
-- **Backend**: Supabase (PostgreSQL, Auth, Edge Functions, Realtime, RLS)
-- **Payments**: Stripe Connect (Standard accounts)
-- **UI Components**: Replace current hand-rolled components with shadcn/ui (Lovable default)
-- **Data Fetching**: TanStack React Query
-- **Routing**: React Router v7 (already configured)
-- **Maps**: topojson-client + us-atlas CDN
-- **AI**: Claude API or OpenAI for NRI compass phrasing (edge function)
-- **Search/SEO**: Perplexity AI API for news aggregation
-- **Translation**: DeepL API for Spanish content
-- **Icons**: Lucide React
+- `src/types/index.ts` — Members, ICA, Patronage, Governance, Committees, Meetings, Labor, Bylaws, Tenants, NRI, Import, Templates
+- `src/types/payments.ts` — Stripe Connect, Buy-In, Dues, Patronage Payouts, Payment Events
+- `src/types/integrations.ts` — QuickBooks, Time Import Sources
+- `src/types/scheduling.ts` — Committee Schedules, Term Rotation, Fairness
+- `src/types/documents.ts` — Document Connectors, Document Types, NRI Chunks
+- `src/types/communio.ts` — Insights, Questions, Patterns, Sharing Consent
+
+**Every type maps to a Supabase table. Create the tables from the types.**
 
 ---
 
-## File Structure (preserve this)
+## Critical Notes
 
-```
-src/
-├── components/
-│   ├── a11y/          # Accessibility provider
-│   ├── auth/          # ProtectedRoute
-│   ├── compass/       # NRI Compass drawer
-│   ├── gardener/      # GardenerLayout
-│   ├── gates/         # FeatureGate
-│   ├── import/        # ImportWizard
-│   ├── layout/        # AppLayout, MarketingLayout
-│   ├── marketing/     # BrowserFrame, AppScreenshots, CooperativeMap
-│   └── onboarding/    # OnboardingWizard, PaymentSetup
-├── contexts/          # DemoMode, Auth, Tenant
-├── data/              # demo.ts, cooperatives.ts (408 geocoded co-ops)
-├── i18n/              # Locale system with DeepL
-├── lib/
-│   ├── notifications/ # Template system
-│   ├── nri/           # scopeGuardrails, signalEngine
-│   └── seo/           # Perplexity engine
-├── pages/
-│   └── gardener/      # 8 gardener pages
-└── types/             # index, payments, integrations, scheduling
-```
-
----
-
-## Critical Implementation Notes
-
-1. **All financial amounts are stored in cents** (integer). Never use floating point for money. Display with `(amount / 100).toLocaleString()`.
-
-2. **NRI is rule-based, not AI**. The signal engine (`signalEngine.ts`) uses deterministic rules. AI is only used for natural language phrasing in the Compass chat. Never let AI make decisions about cooperative governance or finances.
-
-3. **Demo mode must always work**. The `DemoModeContext` pattern must be preserved — it intercepts writes and provides synthetic data. This is how prospects experience the product.
-
-4. **Bylaws drive everything**. Patronage basis, voting method, quorum thresholds, buy-in amounts, visibility rules — all come from `BylawConfig`. Never hardcode these values.
-
-5. **The cooperative owns their Stripe account**. Communis is a platform (Stripe Connect), not a payment processor. Money flows directly to the cooperative's bank account. Communis takes an application fee. We never hold cooperative funds.
-
-6. **Every table needs tenant_id + RLS**. No exceptions. Row-level security is the foundation of multi-tenancy.
-
-7. **Spanish is not optional**. 37.9% of worker-owners are Latinx. The i18n system exists — use it for all user-facing strings.
-
-8. **The Gardener console is admin-only**. It must be behind role-based route protection. It uses a dark theme to visually distinguish it from the tenant app.
-
-9. **Preserve the CROS narrative voice**. Equity statements are sentences, not numbers. NRI signals are gentle observations, not alerts. The app notices, it doesn't nag.
-
-10. **Cooperative templates pre-fill bylaws**. When a co-op selects "Cleaning Cooperative" during onboarding, the system pre-fills: $2,000 buy-in, hours-based patronage, 80% qualified, majority voting, 6-month candidacy, 3-year revolvement. The co-op can customize everything.
+1. **All money in cents** (integer). Never float. Display: `(cents / 100).toLocaleString()`.
+2. **NRI is rule-based**. AI phrases responses only. Signal engine is deterministic.
+3. **Demo mode preserved**. Unauthenticated users at `/demo` see the full demo with synthetic data.
+4. **Bylaws drive everything**. Never hardcode patronage basis, voting method, quorum, buy-in amounts.
+5. **Co-op owns their Stripe account**. We never hold funds. Standard Connected Accounts.
+6. **Every table: tenant_id + RLS**. No exceptions.
+7. **Spanish required**. 37.9% Latinx worker-owners. All UI strings through `t()`.
+8. **Narrative voice**. Reports are human prose. Equity statements are sentences. NRI notices, never nags.
+9. **Templates pre-fill bylaws**. 8 cooperative templates with default configurations.
+10. **API keys are the LAST step**. Everything else must be wired and tested first.
 
 ---
 
 ## What NOT to Build
 
-- **Accounting software** — We integrate with QuickBooks/Xero, we don't replace them
-- **Payroll** — We import hours from payroll systems, we don't process payroll
-- **General-purpose chat/messaging** — NRI Compass is a knowledge assistant, not Slack
-- **CRM** — Communis is a Cooperative OS, not a customer relationship tool
-- **Scheduling/shift management** — We import from scheduling tools, we don't build a scheduler (committee scheduling is the exception)
+- Accounting software (integrate with QuickBooks)
+- Payroll (import hours from payroll systems)
+- General chat (NRI Compass is a knowledge assistant)
+- CRM (this is a Cooperative OS)
+- Shift scheduling (import from scheduling tools)
+
+---
+
+## Definition of Done
+
+**The app is complete when a new cooperative can:**
+1. Sign up and create their cooperative (onboarding wizard)
+2. Configure bylaws from a template
+3. Add members (manually or via CSV import)
+4. Connect Stripe and collect member buy-ins
+5. Track member equity in Internal Capital Accounts
+6. Log labor hours (manual or import)
+7. Run a patronage calculation and hold a governance vote
+8. Distribute patronage via Stripe payouts
+9. Upload documents and ask NRI questions about them
+10. Practice governance with rehearsal votes
+11. Generate a narrative annual report
+12. Share an anonymized insight to Communio
+13. Do all of the above in Spanish
+
+**If any of these 13 steps don't work end-to-end, the app is not done.**
